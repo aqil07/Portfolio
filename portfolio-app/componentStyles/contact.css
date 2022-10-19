@@ -1,0 +1,13 @@
+
+.contactCard {
+    grid-column-start: 10;
+    margin-left: 1rem;
+    gap: 2rem;
+    display: inline-flex;
+    margin-right: 2rem;
+}
+
+.imageEl {
+    width: 30px;
+    height: auto;
+}

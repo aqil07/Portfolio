@@ -1,33 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import styles from '../styles/Home.module.css'
-// export async function getStaticProps() {
-
-
-//     const header = 'Welcome to my Portfolio';
-//     let i = 0;
-
-//     function textTyper(): any {
-//         let tmpEl: any
-//         if (i < header.length) {
-//             tmpEl = document.getElementById('welcome').innerHTML += header.charAt(i)
-//             i++;
-//             setTimeout(textTyper, 50)
-//         }
-
-//         return tmpEl
-//     }
-
-//     const tmp = textTyper();
-
-//     return {
-//         props: { key: tmp }
-//     }
-// }
+import styles from '../styles/Home.module.css';
 
 function Welcome(props: any) {
 
 
-    const win = useRef();
+    const win: any = useRef();
     // useEffect(() => {
     const header = 'Welcome to my Portfolio';
     let i = 0;
