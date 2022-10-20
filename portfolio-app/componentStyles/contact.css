@@ -1,5 +1,6 @@
 
 .contactCard {
+    margin-top: 1rem;
     grid-column-start: 10;
     margin-left: 1rem;
     gap: 2rem;
