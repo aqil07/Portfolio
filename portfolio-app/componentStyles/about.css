@@ -1,4 +1,5 @@
 .aboutCard {
+    min-height: 100vh;
     /* height: fit-content; */
     background-color: transparent;
     transition: transform 0.8s;
@@ -32,17 +33,15 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition: 1s;
+    
 }
 
 /* laptop down portrait */
 @media screen and (max-width: 999px)and (orientation: portrait) {
 
-
-
     .aboutCard {
-        width: 20rem;
+        min-height: 180vh;
         /* height: fit-content; */
-        margin: 0.2rem 0.4rem 0.3rem 0rem;
         background-color: transparent;
         transition: transform 0.8s;
     }
@@ -89,13 +88,6 @@
 @media screen and (min-width:1000px) and (orientation: portrait) {
 
 
-    .aboutCard {
-        grid-row-start: 1;
-        margin-top: 5rem;
-        background-color: transparent;
-        transition: transform 0.8s;
-        /* transform: translateX(100%) ; */
-    }
 
     .workCard {
         grid-row-start: 2;
@@ -170,13 +162,7 @@
 
 
 
-    .aboutCard {
-        /* width: 20rem; */
-        height: fit-content;
-        margin: 0.2rem 0.4rem 0.3rem 0rem;
-        background-color: transparent;
-        transition: transform 0.8s;
-    }
+
 
     .aboutText {
         font-size: large;
@@ -223,13 +209,7 @@
 @media screen and (min-width:1000px) and (orientation: landscape) {
 
 
-    .aboutCard {
-        grid-row-start: 1;
-        margin-top: 5rem;
-        background-color: transparent;
-        transition: transform 0.8s;
-        /* transform: translateX(100%) ; */
-    }
+ 
 
     .aboutText {
         font-size: large;

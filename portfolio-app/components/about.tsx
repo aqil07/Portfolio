@@ -5,6 +5,8 @@ import Contact from '../components/contactDetails';
 import Image from 'next/future/image';
 import gmail from '../public/Gmail_Logo_256px.png';
 import Link from 'next/link';
+import { flushSync } from 'react-dom';
+import Experience from './profExp';
 
 
 function getAge() {
@@ -38,42 +40,60 @@ type Props = {
 
 function About({ age }: Props) {
 
-
     age = getAge();
 
+    let expEl: any = useRef();
 
+    //scroll to element
+    const scrollTo = () => {
+        if (expEl.current) {
+            expEl.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
 
+    //when reload, force top start
+    useEffect(() => {
+        window.addEventListener('unload', () => {
+            window.scrollTo(0, 0)
+        })
+    })
 
     return (
-        <div className='aboutCard' >
-            <div className='aboutText'>
-                <div className='aboutFront'>
-                    <h4>About me..</h4>
-                    <Image
-                        src={gmail.src} width={40} height={1}
-                        className='profile' key='profile' alt="profile_picture" />
-                    <p>
-                        My name is Aqil Arya. I am {age} years old.
-                        <br></br>
-                        I live in Cape Town, South Africa.<br></br>
-                        I am a self-taught developer who has gained practical experience using SQL,
-                        JavaScript, XML, JSON, CSS, HTML in the day-to-day work tasks.
-                        {/* /*image logos */}
-                        <br></br>
-                        In my personal time, I enjoy exploring new technologies
-                        by starting projects relating to the technology and learn  as I go. I believe that
-                        &quot;learning by doing&quot;, is the best way to understand concepts.
-                        <br></br>
-                        Apart from spending time wearing the &quot;dev&quot; hat,
-                        I enjoy spending time relaxing at home and with family,
-                        catching waves seeking new thrills and adventures.
-                    </p>
-                    <Link  href='/profExp'>
-                        <h4 className='expLink'>Professional Experience...</h4>
-                    </Link>
+        <>
+            <div className='aboutCard' >
+                <div className='aboutText'>
+                    <div className='aboutFront'>
+                        <h4>About me..</h4>
+                        <Image
+                            src={gmail.src} width={40} height={1}
+                            className='profile' key='profile' alt="profile_picture" />
+                        <p>
+                            My name is Aqil Arya. I am {age} years old.
+                            <br></br>
+                            I live in Cape Town, South Africa.<br></br>
+                            I am a self-taught developer who has gained practical experience using SQL,
+                            JavaScript, XML, JSON, CSS, HTML in the day-to-day work tasks.
+                            {/* /*image logos */}
+                            <br></br>
+                            In my personal time, I enjoy exploring new technologies
+                            by starting projects relating to the technology and learn  as I go. I believe that
+                            &quot;learning by doing&quot;, is the best way to understand concepts.
+                            <br></br>
+                            Apart from spending time wearing the &quot;dev&quot; hat,
+                            I enjoy spending time relaxing at home and with family,
+                            catching waves seeking new thrills and adventures.
+                        </p>
+
+                        <h4 onClick={scrollTo} className='expLink'>Professional Experience...</h4>
+
+                    </div>
+
                 </div>
             </div>
-        </div>
+            <main ref={expEl} className={styles.main}>
+                <Experience />
+            </main>
+        </>
 
     )
 }
