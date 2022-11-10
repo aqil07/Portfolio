@@ -1,0 +1,56 @@
+@media screen and (max-width: 999px) {
+    .aboutFront {
+        font-size: large;
+    }
+}
+
+
+.abtHeader {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.aboutCard {
+    display: flex;
+    background-color: transparent;
+    transition: transform 0.8s;
+}
+.aboutText{
+    height: 50rem;
+}
+
+.aboutFront {
+    text-align: center;
+    font-size: xx-large;
+    box-sizing: border-box;
+    border: 1px solid #111;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+    position: relative;
+    transition: 1s;
+
+}
+
+.typeStr {
+    font-family: 'VT323', monospace;
+}
+
+.cv {
+    width: 100%;
+    height: auto;
+}
+
+.cv p {
+    padding-top: 10px;
+
+    border-top: 1px solid #111;
+}
+
+p {
+
+    border-bottom: none;
+}
