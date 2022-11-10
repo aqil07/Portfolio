@@ -1,88 +1,62 @@
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
-import Toggle from '../components/toggle';
-import styles from '../styles/Home.module.css';
-import Welcome from '../components/welcome';
-import Contact from '../components/contactDetails';
-import About from '../components/about';
-import Experience from '../components/profExp';
-import Link from 'next/link';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { RoundedBox } from '@react-three/drei';
+
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import styles from './componentStyles/Home.module.css';
+// import SphereGeo from '../threeJS/sphere';
+// import Stars from '../threeJS/stars';
+// import { Canvas, } from '@react-three/fiber';
+// import { Loader, PresentationControls } from '@react-three/drei';
+import { delay, motion } from 'framer-motion';
+import Skills from './skills';
+import { contactImageSchema, skillSchema } from '../utils/types';
+import { createClient } from 'next-sanity';
+import Contact from './components/contactDetails';
 
 
-const Home: NextPage = () => {
-  function Box(props: any) {
-    // This reference will give us direct access to the mesh
-    const mesh:any = useRef()
-    // Set up state for the hovered and active state
-    const [hovered, setHover] = useState(false)
-    const [active, setActive] = useState(false)
-    // Rotate mesh every frame, this is outside of React without overhead
-    useFrame(() => (mesh.current.rotation.x += 0.01))
+type Props = {
+}
 
-    return (
-      <mesh
-        {...props}
-        ref={mesh}
-        scale={active ? 1.5 : 1}
-        onClick={(event) => setActive(!active)}
-        onPointerOver={(event) => setHover(true)}
-        onPointerOut={(event) => setHover(false)}>
-        <boxGeometry args={[1, 2, 3]} />
-        <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-      </mesh>
-    )
-  }
+
+
+export default function Home({  }: Props) {
+
+
+
+  let canvas: any = useRef();
+
+  const about: any = useRef();
+  const work: any = useRef();
 
   return (
+
     <>
-      <Canvas>
-        <ambientLight />
-        <pointLight position={[10, 10, 10]} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
-      </Canvas>
+
+      {
+      /* <div ref={canvas} className={styles.canvas}>
+        <Canvas id='canvasMain' frameloop='always' camera={{ position: [5, 0, 0], fov: 50 }}>
+          <Suspense fallback={null}>
+            <directionalLight position={[10, 20, 20]} intensity={1} color={0xfffff} />
+            <PresentationControls
+              enabled={true} // the controls can be disabled by setting this to false
+              global={true} // Spin globally or by dragging the model
+              cursor={true} // Whether to toggle cursor style on drag
+              snap={{ mass: 4, tension: 1500, friction: 50 }} // Snap-back to center (can also be a spring config)
+              speed={1} // Speed factor
+              zoom={1} // Zoom factor when half the polar-max is reached
+              rotation={[0, 0, 0.3]} // Default rotation
+              polar={[-Infinity, Infinity]} // Vertical limits
+              azimuth={[-Infinity, Infinity]} // Horizontal limits
+              config={{ mass: 4, tension: 800, friction: 50 }} // Spring config
+            >
+              <SphereGeo />
+            </PresentationControls>
+          </Suspense>
+        </Canvas>
+        <Loader />
+      </div> */}
       <div id='container' className={styles.container}>
-        <Head>
-          <title></title>
-          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <header className={styles.pageHeader}>
-          <Contact />
-          <Toggle />
-        </header>
-        <div className={styles.welcomeEl}>
-          <Welcome />
-        </div>
-        <main id='main' className={styles.main}>
-
-
-          <About age />
-
-
-
-
-        </main >
-
-
-
-        <footer className={styles.footer} >
-          <button className={styles.backToTop} onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            })
-          }}>
-            Back to Top
-          </button>
-        </footer>
+        <main className={styles.main}>
+        </main>
       </div >
     </>
   )
 }
-
-export default Home

@@ -1,0 +1,67 @@
+.form {
+    border: 1px solid #111;
+    border-radius: 10px;
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    font-size: xx-large;
+    gap: 1rem;
+}
+
+#message {
+    resize: vertical;
+}
+
+#name,
+#email,
+#subject,
+#message {
+    resize: vertical;
+    overflow: scroll;
+    font-size: xx-large;
+    visibility: visible;
+    width: 100%;
+    height: 10vh;
+    border: 1px solid black;
+    border-radius: 10px;
+
+
+}
+
+#message {
+    min-height: fit-content;
+    height: fit-content;
+}
+
+.formHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.submit {
+    font-size: large;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px lightslategrey;
+    border: 1px solid lightblue;
+    margin-top: 1vh;
+
+}
+
+
+@media (max-aspect-ratio:16/9) {
+   .form{
+    
+    font-size: x-large;
+   }
+   #name,
+   #email,
+   #subject,
+   #message {
+    font-size:x-large;
+   }
+
+
+}
