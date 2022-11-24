@@ -1,7 +1,12 @@
+html{
+  width: auto;
+}
 
 
 
-h4, label, p {
+h4,
+label,
+p {
   font-family: 'VT323', monospace;
   border-bottom: 1px solid #111;
   font-size: xx-large;
@@ -11,12 +16,13 @@ html,
 body {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 a {
   color: inherit;
-  
+
   text-decoration: none;
 }
 
@@ -34,15 +40,8 @@ a {
   }
 }
 
-
-@media (min-aspect-ratio:16/9) {
+@media (max-aspect-ratio:16/9) {
   html{
-    width: 100%;
-  }
-}
-
-@media  (max-aspect-ratio:9/16) or (max-width:767px) {
-  html{
-    width: auto;
+    width: fit-content;
   }
 }

@@ -50,7 +50,6 @@
 
 .expCTN:hover .workCTN {
     justify-self: center;
-    background-color: lightblue;
     border-radius: 10px;
     z-index: 3;
     width: fit-content;
@@ -64,11 +63,11 @@
     z-index: 0;
     cursor: pointer;
     display: grid;
-    grid-template-columns: 0% 100%;
+    grid-template-columns: 100% 0%;
     min-height: 0;
     height: 30vh;
     margin-bottom: 5rem;
-    transition: 2s ease-in;
+    transition: 0.5s ease-out;
 
 }
 
@@ -91,7 +90,7 @@
 }
 
 .expCTN:hover{
-    grid-template-columns: 80% 20%;
+    grid-template-columns: 20% 80%;
 }
 
 .expCTN:hover .description {

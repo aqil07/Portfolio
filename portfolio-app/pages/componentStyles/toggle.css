@@ -5,6 +5,7 @@
 
 
 .toggle {
+    border: 0.3px solid rgba(0,0,0,2.1);
     width: 80px;
     height: 32px;
     border-radius: 180px;
@@ -20,7 +21,8 @@ input {
 }
 
 input:checked+.toggle {
-    background-color: lightgrey;
+    background-color: rgba(102, 182, 252, 0.1);
+    border: 0.3px solid rgba(232, 232, 232, 0.971);
 }
 
 input:checked+.toggle::after {
