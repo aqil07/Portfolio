@@ -33,7 +33,6 @@
   margin: 0 0 100vh 0;
   padding: 4rem 0 0 0;
   height: auto;
-  /* display: grid; */
 }
 
 .formDiv {
@@ -164,6 +163,10 @@
 
 }
 
+.homeIcon{
+  margin: 0.4rem;
+}
+
 
 .pageHeader .navSection {
   display: flex;
@@ -176,13 +179,7 @@
 .navSection {
   cursor: pointer;
   opacity: 1;
-  /* background: rgba(44, 22, 123, 1); */
 }
-
-#toggle {
-  flex-grow: 0;
-}
-
 
 #toggle,
 #pageNav {
@@ -193,6 +190,7 @@
   font-size: large;
   color: white;
   font-weight: bold;
+  gap: 50px;
   align-items: center;
   justify-content: center;
 }
@@ -200,7 +198,7 @@
 #contact {
   align-content: flex-end;
   justify-content: flex-end;
-  flex-grow: 3;
+  flex-grow: 1;
 }
 
 #work {

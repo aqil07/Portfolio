@@ -4,6 +4,7 @@ import { contactImageSchema } from '../../utils/types';
 import Form from './contactForm';
 import Footer from './footer';
 import Nav from './nav';
+import { motion, useInView } from "framer-motion";
 
 type Props = {
     children: any,
