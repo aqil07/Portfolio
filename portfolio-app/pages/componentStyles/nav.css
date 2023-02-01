@@ -1,0 +1,30 @@
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    padding: 0.5rem;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    transition: 1s cubic-bezier(0.25, 0.1, 0.04, 0.9);
+    background-color: rgba(41, 169, 223, 0.420);
+}
+
+.navbar .contactCard {
+    justify-content: flex-end;
+}
+
+.navbar .links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+@media screen and (max-width:760px) {
+    .navbar {
+
+        display: flex;
+        flex-direction: column;
+    }
+}

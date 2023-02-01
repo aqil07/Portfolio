@@ -1,27 +1,92 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useReducer, useRef, useState } from 'react';
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
+type formType = {
+    name: string,
+    email: string,
+    subject: string,
+    message: string
+}
+
+function reducerF(state: any, dispatch: {
+    [x: string]: any; type: any;
+}) {
+   
+    switch (dispatch.type) {
+        case 'update': {
+            return {
+                name: dispatch.newName,
+
+                email: dispatch.newEmail,
+
+                subject: dispatch.newSubject,
+
+                message: dispatch.newMessage,
+
+
+            };
+        }
+    }
+}
+
+const initiArg: formType = {
+    name: '', email: '', subject: '', message: ''
+}
 
 
 function Form(): JSX.Element {
-    const [nameInput, nameInputState]: [string, any] = useState<string>('');
-    const [emailInput, emailInputState]: [string, any] = useState<string>('');
-    const [subject, subjInputState]: [string, any] = useState<string>('');
-    const [messageRes, messageInputState]: [string, any] = useState<string>('');
+    const [state, dispatch] = useReducer(reducerF,initiArg)
+    // const [nameInput, nameInputState]: [string, any] = useState<string>('');
+    // const [emailInput, emailInputState]: [string, any] = useState<string>('');
+    // const [subject, subjInputState]: [string, any] = useState<string>('');
+    // const [messageRes, messageInputState]: [string, any] = useState<string>('');
     const form: any = useRef();
 
     const handleNameChange = (e: any) => {
-        nameInputState(e.target.value)
+        // nameInputState(e.target.value)
+        console.log('e',e.target.value);
+        
+        dispatch({
+            type: 'update', newName: e.target.value,
+            newEmail: state?.email,
+            newSubject: state?.subject,
+            newMessage: state?.message
+        })
+
+        // console.log(state?.name);
     }
+
     const handleEmailChange = (e: any) => {
-        emailInputState(e.target.value)
+        // emailInputState(e.target.value)
+
+        dispatch({
+            type: 'update', newEmail: e.target.value,
+            newName: state?.name,
+            newSubject: state?.subject,
+            newMessage: state?.message
+        })
     }
     const handleSubjectChange = (e: any) => {
-        subjInputState(e.target.value)
+        // subjInputState(e.target.value)
+
+        dispatch({
+            type: 'update', newSubject: e.target.value,
+            newName: state?.name,
+            newEmail: state?.email,
+            newMessage: state?.message
+        })
     }
     const handleMessageChange = (e: any) => {
-        messageInputState(e.target.value)
+        // messageInputState(e.target.value)
+
+        dispatch({
+            type: 'update', newMessage: e.target.value,
+            newName: state?.name,
+            newEmail: state?.email,
+            newSubject: state?.subject
+        })
     }
+    
     const service: string | any = process.env.service;
     const template: string | any = process.env.template;
     const key: string | any = process.env.key;
@@ -47,13 +112,13 @@ function Form(): JSX.Element {
             </div>
             <form ref={form} className='form' id='form' onSubmit={handleSubmit}>
                 <label htmlFor='name'>Enter your name</label>
-                <input required onChange={handleNameChange} type='text' name='name' className='name' id='name' value={nameInput} />
+                <input required onChange={handleNameChange} type='text' name='name' className='name' id='name' value={state?.name} />
                 <label htmlFor='email'>Enter your email</label>
-                <input required onChange={handleEmailChange} type='text' name='email' className='email' id='email' value={emailInput} />
+                <input required onChange={handleEmailChange} type='text' name='email' className='email' id='email' value={state?.email} />
                 <label htmlFor='subject'>Subject</label>
-                <input required={false} type='text' id='subject' className='subject' name='subject' onChange={handleSubjectChange} value={subject} />
+                <input required={false} type='text' id='subject' className='subject' name='subject' onChange={handleSubjectChange} value={state?.subject} />
                 <label htmlFor='message'>Enter your message</label>
-                <textarea required id='message' className='message' name='message' onChange={handleMessageChange} value={messageRes} />
+                <textarea required id='message' className='message' name='message' onChange={handleMessageChange} value={state?.message} />
                 <button type='submit' className='submit' id='submit'>Submit</button>
             </form>
         </>

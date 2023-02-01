@@ -1,18 +1,7 @@
 
 .contactCard {
-    margin-top: 1rem;
-    grid-column-start: 10;
-    margin-left: 1rem;
-    gap: 2rem;
-    display: inline-flex;
-    margin-right: 2rem;
-}
-
-.imageEl{
-    padding: 0.5rem;
-    border-radius: 10%;
-    background-color: #fff;
-    border: 1px solid #e1e1e1;
-    width: 40px;
-    height: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap:1rem;
 }

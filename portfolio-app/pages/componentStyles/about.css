@@ -1,8 +1,8 @@
-@media screen and (max-width: 999px) {
+/* @media screen and (max-width: 999px) {
     .aboutFront {
         font-size: large;
     }
-}
+} */
 
 
 .abtHeader {
@@ -14,20 +14,44 @@
 
 
 .aboutCard {
-    display: flex;
-    background-color: transparent;
-    transition: transform 0.8s;
+    --skew-a: -5deg;
+    --background-image:linear-gradient(45deg, rgba(9, 62, 85, 0.545),rgba(27, 95, 130, 0.373) );
+    --background-image-2:linear-gradient(45deg, rgba(9, 157, 220, 0.373),rgba(90, 141, 169, 0.373) );
+   
+    display: flex; 
+    position: relative;
 }
+
+.aboutCard::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: skewY(var(--skew-a));
+    background: var(--background-image-2); 
+
+}
+
+.aboutCard::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transform: skewY(calc(-1 * var(--skew-a)));
+    background: var(--background-image); 
+}
+
 .aboutText{
-    height: 50rem;
+    width: 100%;
+   display: flex;
 }
 
 .aboutFront {
     text-align: center;
     font-size: xx-large;
     box-sizing: border-box;
-    border: 1px solid #111;
-    border-radius: 10px;
+    /* border: 1px solid #111; */
+   border-radius: 10px;
     padding: 1rem;
     width: 100%;
     position: relative;

@@ -12,15 +12,15 @@ function Experience({ workExp }: Props) {
   //assign cache data with useMemo
   let workObj = useMemo(() => workExp, [workExp])
 
+  // console.log(workObj.slice(0, workObj.length / 2));
+
+
   let role: string
   let company: string
   let year: string
 
-  const [details, setDetails]: [string, any] = useState<string>('')
-  const [detailState, hideDetails]: [Boolean, any] = useState<Boolean>(false)
 
   const profEl: any = useRef()
-  const descriptionEl: any = useRef()
   const expDiv: any = useRef()
   const isInView: Boolean = useInView(expDiv)
 
@@ -28,49 +28,31 @@ function Experience({ workExp }: Props) {
     <motion.div
       className="expDiv"
       ref={expDiv}
-      id="expDiv"
-      initial={{ y: -100, opacity: 0 }} //
-      animate={{ opacity: 1, y: 0 }} //{isInView ? { opacity: 1, y: 0, } : { opacity: 0 }}
-      transition={{ type: 'keyframes' }}
-    >
+      id="workExp"
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      >
       <div className="expHeader">
         <h4>Professional Experience</h4>
       </div>
       <motion.div
         className="groupDiv"
-        initial={{ opacity: 0, x: -100 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }}
-        transition={{
-          type: 'spring',
-          delay: 0.9,
-        }}
+
       >
-        {workObj.slice(0, workObj.length / 2).map((obj) => {
+        {workObj.map((obj) => {
           role = obj.role
           company = obj.company
           year = obj.year
-          // description = obj.description;
 
-          function showDescription(): any {
-            setDetails(obj.description)
-
-            hideDetails(!detailState)
-          }
-
-          function mouseLeave() {
-            setDetails('')
-          }
+  
 
           return (
             <motion.div
-              onMouseMove={showDescription}
-              onMouseOutCapture={mouseLeave}
               key={obj._id}
               id={obj.year}
               className="expCTN"
-              animate={
-                isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -100 }
-              }
+              animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: -100, }}
+            
             >
               <motion.div
                 key={obj._id}
@@ -79,82 +61,16 @@ function Experience({ workExp }: Props) {
                 className="workCTN"
               >
                 <div key={obj._id} className="yearsEL">
-                  {year}
+                  <p>{year}</p>
                 </div>
                 <div key={'role' + obj._id} className="role">
-                  {role}
+                  <p>{role}</p>
                 </div>
                 <div key={'company' + obj._id} className="Company">
-                  {company}
+                  <p>{company}</p>
                 </div>
-              </motion.div>
-              <motion.div
-                key={'descr' + obj._id}
-                ref={descriptionEl}
-                className="description"
-              >
-                {details}
-              </motion.div>
-            </motion.div>
-          )
-        })}
-      </motion.div>
-      <motion.div
-        className="groupDiv"
-        initial={{ opacity: 0, x: 100 }}
-        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 100 }}
-        transition={{
-          type: 'spring',
-          delay: 0.9,
-        }}
-      >
-        {workObj.slice(workObj.length / 2).map((obj) => {
-          role = obj.role
-          company = obj.company
-          year = obj.year
+               </motion.div>
 
-          function showDescription(): any {
-            setDetails(obj.description)
-
-            hideDetails(!detailState)
-          }
-
-          function mouseLeave() {
-            setDetails('')
-          }
-
-          return (
-            <motion.div
-              onClick={showDescription}
-              onMouseMoveCapture={showDescription}
-              onMouseDownCapture={mouseLeave}
-              key={obj._id}
-              id={obj.year}
-              className="expCTN"
-            >
-              <motion.div
-                key={obj._id}
-                id={obj._id}
-                ref={profEl}
-                className="workCTN"
-              >
-                <div key={obj._id} className="yearsEL">
-                  {year}
-                </div>
-                <div key={'role' + obj._id} className="role">
-                  {role}
-                </div>
-                <div key={'company' + obj._id} className="Company">
-                  {company}
-                </div>
-              </motion.div>
-              <motion.div
-                key={'descr' + obj._id}
-                ref={descriptionEl}
-                className="description"
-              >
-                {details}
-              </motion.div>
             </motion.div>
           )
         })}
@@ -165,22 +81,22 @@ function Experience({ workExp }: Props) {
 
 export default Experience
 
-export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_project_id,
-  dataset: process.env.NEXT_PUBLIC_dataset,
-  apiVersion: process.env.NEXT_PUBLIC_apiVersion,
-  useCdn: false,
-})
+// export const client = createClient({
+//   projectId: 'aoh7mhe4',//process.env.NEXT_PUBLIC_project_id,
+//   dataset: 'production',//process.env.NEXT_PUBLIC_dataset,
+//   apiVersion: '2021-10-21',//process.env.NEXT_PUBLIC_apiVersion,
+//   useCdn: false
+// });
 
 //get data from Sanity
-export async function getStaticProps() {
-  const workExp: Array<Object> = await client.fetch(
-    `*[_type == "workExperience"] | order(year desc)`
-  )
+// export async function getStaticProps() {
+//   const workExp: Array<Object> = await client.fetch(
+//     `*[_type == "workExperience"] | order(year desc)`
+//   )
 
-  return {
-    props: {
-      workExp,
-    },
-  }
-}
+//   return {
+//     props: {
+//       workExp,
+//     },
+//   }
+// }

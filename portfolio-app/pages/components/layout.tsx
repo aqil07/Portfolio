@@ -11,13 +11,21 @@ type Props = {
 }
 
 function Layout({ children }: Props) {
-    
+
     return (
-        <>
-            <Nav  />
-            <main>{children}</main>
+        <motion.div className='layout'
+            style={{
+                display: 'grid',
+                gridTemplateRows: 'auto auto 1fr auto',
+                padding:0,
+                margin:'1rem'
+            }}
+        >
+            <motion.span style={{marginBottom:'1rem'}}><motion.a target="_blank" href="https://icons8.com/icon/fmFqQmR0UdsR/github">Icons</motion.a> by <motion.a target="_blank" href="https://icons8.com">Icons8</motion.a></motion.span>
+            <Nav />
+            <motion.main>{children}</motion.main>
             <Footer />
-        </>
+        </motion.div>
     )
 }
 

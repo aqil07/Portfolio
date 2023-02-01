@@ -5,17 +5,14 @@
   box-shadow: 5px 5px lightslategrey;
   border: 1px solid lightblue;
   margin-top: 1vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: large;
 
 }
 
-.canvas {
-  touch-action: none;
-  min-height: 0;
-  cursor: pointer;
-  min-width: 0;
-  aspect-ratio: 4/1;
-}
+
 
 
 .container {
@@ -29,6 +26,7 @@
 }
 
 .main {
+  /* background-color: blue; */
   width: 100%;
   margin: 0 0 100vh 0;
   padding: 4rem 0 0 0;
@@ -36,10 +34,10 @@
 }
 
 .formDiv {
-  padding: 10rem 0 5rem 0;
+  padding: 1rem;
 }
 
-@media screen and (max-aspect-ratio:16/9) {
+/* @media screen and (max-aspect-ratio:16/9) {
 
   .canvas {
     touch-action: none;
@@ -58,6 +56,7 @@
   }
 
   .main {
+    background-color: red;
     width: 100%;
     height: auto;
     margin: 0 0 100vh 0;
@@ -69,14 +68,14 @@
   }
 
 
-}
+} */
 
 .footer {
   display: flex;
   flex-direction: column;
   margin: 5rem 0 3vh 0;
   border-top: 1px solid #eaeaea;
-  justify-content: left;
+  justify-content: center;
 }
 
 .footer a {
@@ -156,8 +155,12 @@
   box-sizing: border-box;
   /* position: sticky; */
   top: 0;
-  display: flex;
-  opacity: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+  /* opacity: 1; */
   margin-top: 1rem;
   margin-bottom: 1rem;
 
@@ -168,8 +171,9 @@
 }
 
 
-.pageHeader .navSection {
+.pageHeader a {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   box-sizing: border-box;
   padding: 3rem 2rem;

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 type Props = {}
 
@@ -33,16 +34,9 @@ function Projects({}: Props) {
     
   }
   return (
-    <motion.div>
+    <motion.div id='projects'>
       <motion.section>
-        <svg
-          ref={svgWave}
-          onMouseMove={mouseMove}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-        >
-          <path fill={fill} fillOpacity={fillOpacity} d={d}></path>
-        </svg>
+       <Link href='https://codepen.io/aqilarya'>My CodePen</Link>
       </motion.section>
     </motion.div>
   )

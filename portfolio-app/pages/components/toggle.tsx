@@ -37,10 +37,10 @@ function Toggle() {
     typeStr = document.querySelectorAll('.typeStr')
 
     if (isChecked === true) {
-      document.body.style.backgroundImage =
-        'linear-gradient(80deg, #111 55%,blue 100%)'
-      navHeader.style.backgroundImage =
-        'linear-gradient(45deg, #fff -100%,#111 10%, #66b6fc 110%)'
+      // document.body.style.backgroundImage =
+      //   'linear-gradient(80deg, #111 55%,blue 100%)'
+      // navHeader.style.backgroundImage =
+      //   'linear-gradient(45deg, #fff -100%,#111 10%, #66b6fc 110%)'
 
       // console.log();
       homeIcon.children[0].setAttribute('fill', '#fff')
@@ -67,11 +67,11 @@ function Toggle() {
       })
     } else {
       // document.body.style.backgroundColor = '#ffffff';
-      document.body.style.backgroundImage =
-        'linear-gradient(80deg, #ffffff 10%, #e1e1e1 51%)'
+      // document.body.style.backgroundImage =
+      //   'linear-gradient(80deg, #ffffff 10%, #e1e1e1 51%)'
       // console.log(document.body.style);
-      navHeader.style.backgroundImage =
-        'linear-gradient(45deg, #111 -100%,darkgray 10%, lightgrey 100% )'
+      // navHeader.style.backgroundImage =
+      //   'linear-gradient(45deg, #111 -100%,darkgray 10%, lightgrey 100% )'
 
       homeIcon.children[0].setAttribute('fill', '#111')
       p.forEach((elT: any) => {

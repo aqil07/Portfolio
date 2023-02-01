@@ -1,9 +1,10 @@
 .form {
     border: 1px solid #111;
     border-radius: 10px;
-    display: flex;
     padding: 1rem;
-    flex-direction: column;
+    display: grid;
+    /* display: flex;
+    flex-direction: column; */
     font-size: xx-large;
     gap: 1rem;
 }
@@ -37,6 +38,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 0.5rem;
 }
 
 .submit {
@@ -51,7 +53,7 @@
 }
 
 
-@media (max-aspect-ratio:16/9) {
+/* @media (max-aspect-ratio:16/9) {
    .form{
     
     font-size: x-large;
@@ -64,4 +66,4 @@
    }
 
 
-}
+} */

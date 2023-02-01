@@ -8,7 +8,7 @@ import { motion, useInView } from 'framer-motion'
 
 type Props = {}
 
-function Contact({}: Props) {
+function Contact({ }: Props) {
   interface imageSchema {
     gmail: string
     linkedIn: string
@@ -25,13 +25,13 @@ function Contact({}: Props) {
   }
 
   let urls = {
-    gmail: '#formmotion.div',
+    gmail: '#formDiv',
     linkedIn: 'https://linkedin.com/in/aqil-arya',
     github: 'https://github.com/aqil07',
   }
 
-  let imgW = 80
-  let imgH = 80
+  let imgW = 50
+  let imgH = 50
 
   return (
     <>
@@ -45,11 +45,12 @@ function Contact({}: Props) {
           >
             <motion.a key={'gmail'} href={urls.gmail}>
               <Image
+                loading='lazy'
                 width={imgW}
                 height={imgH}
                 key="img"
                 alt={'gmail'}
-                src={images.gmail}
+                src='gmail.svg'//{images.gmail}
               ></Image>
             </motion.a>
           </motion.div>
@@ -66,11 +67,12 @@ function Contact({}: Props) {
               rel="noreferrer"
             >
               <Image
+                loading='lazy'
                 width={imgW}
                 height={imgH}
                 key="img"
                 alt={'github'}
-                src={images.github}
+                src='github.svg'//{images.github}
               ></Image>
             </motion.a>
           </motion.div>
@@ -87,11 +89,12 @@ function Contact({}: Props) {
               rel="noreferrer"
             >
               <Image
+                loading='lazy'
                 width={imgW}
                 height={imgH}
                 key="img"
                 alt={'linkedIn'}
-                src={images.linkedIn}
+                src='linkedin.svg'//{images.linkedIn}
               ></Image>
             </motion.a>
           </motion.div>

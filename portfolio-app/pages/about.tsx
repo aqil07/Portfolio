@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import Image from 'next/future/image';
 import TypewriterComponent from 'typewriter-effect';
 import { createClient, SanityClient } from 'next-sanity';
 import { aboutSchema } from '../utils/types';
 import { motion, useInView } from 'framer-motion';
 
-function getAge() {
+export function getAge() {
 
     //current date
     const date: Date = new Date();
@@ -59,8 +58,9 @@ function About({ age, about }: Props) {
     // urlFor()
 
     return (
-        <>
-            <motion.div className='aboutText' ref={aboutCard}
+        <div className='aboutCard' >
+            <motion.div  id='about'   className='aboutText' ref={aboutCard}
+            
                 initial={{ opacity: 0, y: -100, }}//
                 animate={isInView ? { opacity: 1, y: 0, } : { opacity: 0, y: -100, }}
                 transition={{ type: 'spring', }}
@@ -69,7 +69,7 @@ function About({ age, about }: Props) {
                     <div className='abtHeader'>
                         <h4>About me..</h4>
                     </div>
-                    <TypewriterComponent options={{
+                    {/* <TypewriterComponent options={{
                         wrapperClassName: 'typeStr',
                         strings: aboutStr,
                         autoStart: true,
@@ -77,7 +77,8 @@ function About({ age, about }: Props) {
                         cursor: '_'
                     }}
 
-                    />
+                    /> */}
+                    <p>{aboutStr}</p>
                     {/* <Image
                             src={gmail.src} width={40} height={1}
                             className='profile' key='profile' alt="profile_picture" /> */}
@@ -87,7 +88,7 @@ function About({ age, about }: Props) {
 
             </motion.div>
 
-        </>
+        </div>
 
     )
 }
@@ -95,20 +96,20 @@ function About({ age, about }: Props) {
 export default About;
 
 
-export const client = createClient({
-    projectId: process.env.NEXT_PUBLIC_project_id,
-    dataset: process.env.NEXT_PUBLIC_dataset,
-    apiVersion: process.env.NEXT_PUBLIC_apiVersion,
-    useCdn: false
-});
+// export const client = createClient({
+//     projectId: 'aoh7mhe4',//process.env.NEXT_PUBLIC_project_id,
+//     dataset: 'production',//process.env.NEXT_PUBLIC_dataset,
+//     apiVersion: '2021-10-21',//process.env.NEXT_PUBLIC_apiVersion,
+//     useCdn: false
+// });
 
-//get data from Sanity
-export async function getStaticProps() {
-    const about: Array<Object> = await client.fetch(`*[_type == "about"]`);
+// //get data from Sanity
+// export async function getStaticProps() {
+//     const about: Array<Object> = await client.fetch(`*[_type == "about"]`);
 
-    return {
-        props: {
-            about,
-        }
-    }
-}
+//     return {
+//         props: {
+//             about,
+//         }
+//     }
+// }

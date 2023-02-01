@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, useInView } from "framer-motion";
+import { delay, motion, useInView } from "framer-motion";
 import { createClient } from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import { skillSchema } from '../utils/types'
+import { client } from '.';
 
 type Props = {
     skills: [skillSchema],
@@ -26,9 +27,9 @@ function Skills({ skills }: Props) {
     };
 
     return (
-        <motion.div ref={skillsCtn} className='skills' id='skills'
-            initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}//{isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -100 }}
+        <motion.div ref={skillsCtn} className='skills'  id='skills'
+            // initial={{ opacity: 0,y:-100 }}
+            // animate={{ opacity: 1,  y:0}}//{isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -100 }}
         >
 
             <div className='skillHDR'>
@@ -36,12 +37,17 @@ function Skills({ skills }: Props) {
             </div>
 
             <motion.div id='galLeft' className='skillGallery'
-                initial={{ opacity: 0, x: -100 }}
-                animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: -100, }}
-                transition={{
-                    type: 'spring',
-                    delay: 0.9
-                }}
+        //  initial={{ opacity: 0,y:-100 }}
+        //  animate={{ opacity: 1,  y:0}}
+        animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, y: -100, }}
+              
+         // initial={{ opacity: 0, x: -100 }}
+                // animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: -100, }}
+            //    transition={{delay:0.9}}
+                // transition={{
+                //     type: 'spring',
+                //     delay: 0.9
+                // }}
             >
                 {
                     skillData.slice(0, skillData.length / 2).map((skill) => {
@@ -90,12 +96,15 @@ function Skills({ skills }: Props) {
 
             </motion.div>
             <motion.div id='galRight' className='skillGalleryRight'
-              initial={{opacity:0, x:100}}
-              animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: 100, }}
-              transition={{
-                  type: 'spring',
-                  delay: 0.9
-              }}
+           animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: -100, }}
+       
+          //   initial={{opacity:0, x:100}}
+            //   animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: 100, }}
+            //   transition={{delay:0.1}}
+              //   transition={{
+            //       type: 'spring',
+            //       delay: 0.9
+            //   }}
               >
                 {
                     skillData.slice(skillData.length / 2).map((skill) => {
@@ -149,20 +158,20 @@ function Skills({ skills }: Props) {
 
 export default Skills;
 
-export const client = createClient({
-    projectId: process.env.NEXT_PUBLIC_project_id,
-    dataset: process.env.NEXT_PUBLIC_dataset,
-    apiVersion: process.env.NEXT_PUBLIC_apiVersion,
-    useCdn: false
-});
+// export const client = createClient({
+//     projectId: 'aoh7mhe4',//process.env.NEXT_PUBLIC_project_id,
+//     dataset: 'production',//process.env.NEXT_PUBLIC_dataset,
+//     apiVersion: '2021-10-21',//process.env.NEXT_PUBLIC_apiVersion,
+//     useCdn: false
+// });
 
 //get data from Sanity
-export async function getStaticProps() {
-    const skills: Array<Object> = await client.fetch(`*[_type == "Skills"]`);
+// export async function getStaticProps() {
+//     const skills: Array<Object> = await client.fetch(`*[_type == "Skills"]`);
 
-    return {
-        props: {
-            skills,
-        }
-    }
-}
+//     return {
+//         props: {
+//             skills,
+//         }
+//     }
+// }
