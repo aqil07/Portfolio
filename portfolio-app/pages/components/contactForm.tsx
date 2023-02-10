@@ -36,15 +36,11 @@ const initiArg: formType = {
 
 function Form(): JSX.Element {
     const [state, dispatch] = useReducer(reducerF,initiArg)
-    // const [nameInput, nameInputState]: [string, any] = useState<string>('');
-    // const [emailInput, emailInputState]: [string, any] = useState<string>('');
-    // const [subject, subjInputState]: [string, any] = useState<string>('');
-    // const [messageRes, messageInputState]: [string, any] = useState<string>('');
     const form: any = useRef();
 
     const handleNameChange = (e: any) => {
         // nameInputState(e.target.value)
-        console.log('e',e.target.value);
+        // console.log('e',e.target.value);
         
         dispatch({
             type: 'update', newName: e.target.value,
@@ -87,22 +83,24 @@ function Form(): JSX.Element {
         })
     }
     
-    const service: string | any = process.env.service;
-    const template: string | any = process.env.template;
-    const key: string | any = process.env.key;
+    const service: string | any = process.env.NEXT_PUBLIC_EMAIL_SERVICE;
+    const template: string | any = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE;
+    const key: string | any = process.env.NEXT_PUBLIC_EMAIL_KEY;
+    // console.log('k',key);
+    
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
 
 
-        // emailjs.sendForm(
-        //     service,
-        //     template,
-        //     form.current,
-        //     key).then((result) => {
-        //         if (result.text == 'OK')
-        //             alert('emailSent')
-        //     }, (error) => console.log(error));
+        emailjs.sendForm(
+            service,
+            template,
+            form.current,
+            key).then((result) => {
+                if (result.text == 'OK')
+                    alert('emailSent')
+            }, (error) => console.log(error));
     }
 
     return (

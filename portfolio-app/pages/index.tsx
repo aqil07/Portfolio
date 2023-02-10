@@ -15,6 +15,7 @@ import About, { getAge } from './about'
 import Experience from './workExp'
 import Projects from './projects'
 import { useRouter } from 'next/router'
+import Welcome from './components/welcome';
 
 type Props = {
   age: number,
@@ -100,8 +101,7 @@ export default function Home({ about, workExp, skills }: Props) {
       gap: '30rem',
       marginTop: 100
     }}>
-    
-      <Loader />
+      {/* <Welcome /> */}
       <motion.article ref={aboutComp} className='aboutComp'
         style={{ marginTop: 200, marginBottom: 100 }}
         animate={aboutsInView ? { opacity: 1, x: 0, } : { opacity: 0, y: -100, }}

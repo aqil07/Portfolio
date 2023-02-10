@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import styles from '../styles/Home.module.css';
+import styles from '../componentStyles/Home.module.css';
 
 function Welcome(props: any) {
 
