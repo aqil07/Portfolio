@@ -51,7 +51,7 @@
     background: var(--background-image);
     margin: 0.5rem;
 /* moves clockwise */
-    clip-path: polygon( calc(var(--edgeSize)) 0, 100% 0, 100% 80%, calc(100% - var(--edgeSize)) 100%, 0 100%, 0% 20%)
+    clip-path: polygon( calc(var(--edgeSize)) 0, 100% 0, 100% 80%, calc(100% - var(--edgeSize)) 100%, 0 100%, 0% 20%);
 }
 
 

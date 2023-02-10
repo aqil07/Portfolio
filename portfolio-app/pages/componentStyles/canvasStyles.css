@@ -1,0 +1,34 @@
+.canvas-time-ctn{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.canvas-time,.canvas-time-current{
+    width: fit-content;
+    height: fit-content;
+    font-size: x-large;
+    /* color: white; */
+    background-color: inherit;
+    inset: 0;
+    position: relative;
+    visibility: visible;
+}
+
+label[for='timeChange']{
+    font-size: large;
+    text-decoration: none;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+}
+
+label[for='timeChange'] span{
+    font-size: medium;
+    font-style: italic;
+    
+}

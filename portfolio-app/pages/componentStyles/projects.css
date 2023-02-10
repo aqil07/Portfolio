@@ -1,0 +1,35 @@
+.projects-ctn {
+    --background: radial-gradient(circle at 100%, rgba(55, 95, 113, 0.689), rgb(80, 110, 106));
+    --skew: -3deg;
+    --edgeSize: 0.3em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.projects-ctn::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 10px;
+    /* transform: skewY(var(--skew)); */
+    background:var(--background);
+}
+
+.codepen {
+    text-align: center;
+}
+
+.codepen>a {
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.codepen>a:hover {
+    text-decoration: underline;
+    color: black;
+    background: linear-gradient(60deg, rgb(46, 104, 171),rgb(40, 218, 228));
+}

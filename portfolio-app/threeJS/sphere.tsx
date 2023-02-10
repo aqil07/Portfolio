@@ -7,9 +7,17 @@ import { TextureLoader } from 'three/src/loaders/TextureLoader'
 import { OrbitControls } from '@react-three/drei';
 import * as THREE from "three";
 
+type Props = {
+  timeTrigger: Date | any
+}
 
-function SphereGeo(): JSX.Element {
-  const base = useLoader(TextureLoader, 'worldmap.jpg')
+function SphereGeo({timeTrigger}:Props): JSX.Element {
+// console.log('sphere',timeTrigger);
+
+  const currTime = new Date();
+  
+
+  const base = useLoader(TextureLoader, `${timeTrigger.getHours() >= 6 && timeTrigger.getHours() <= 18 ? 'worldmap.jpg' : 'moonmap.jpg'} ` )
   const meshRef: any = useRef();
   
 
@@ -18,13 +26,11 @@ function SphereGeo(): JSX.Element {
     meshRef.current.rotation.y += 0.003;
   })
   return (
-
     <mesh visible castShadow ref={meshRef}>
       <sphereGeometry  attach='geometry' args={[2, 32, 32]} />
       <meshLambertMaterial attach='material' map={base} />
       {/* <OrbitControls /> */}
     </mesh>
-
   )
 }
 

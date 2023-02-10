@@ -14,28 +14,30 @@ type Props = {}
 
 function Nav({ }: Props) {
   // console.log('t',isToggleActive !== 0)
-const router = useRouter();
-  const navbar: any = useRef(null);
+  const router = useRouter();
+  const navbar: any = useRef();
   // const isActive = useReducer()
   useEffect(() => {
-    // console.log(navbar.current.offsetHeight);
+    // console.log(navbar.current.off);
     // console.log(router.asPath);
-    
-    
+
 
     let topPage = 0;
     navbar.current.style.setProperty('--scrollPadding', `${navbar.current.offsetHeight - 1}px`)
     window.addEventListener('scroll', function (e: any) {
 
       let prevScroll = e.target?.scrollingElement?.scrollTop;
-      // console.log('prev',prevScroll);
-      if (prevScroll > topPage) {
-        //downward scroll
-      } else {
-        navbar.current.style.transform = `translateY(${topPage - 10}px)`;
 
-        navbar.current.style.zIndex = 1000;
-      }
+        if (prevScroll > topPage) {
+          //downward scroll
+          navbar.current.style.transform = `translateY(${topPage}px)`
+        } else {
+          // console.log(navbar);
+          
+          navbar.current.style.transform = `translateY(${topPage - 10}px)`;
+
+          navbar.current.style.zIndex = 1000;
+        }
       //reassign the top value to 0 if  the previous value is less than 0
       //else use the previous value
       topPage = (prevScroll <= 0 ? 0 : prevScroll)
@@ -45,10 +47,10 @@ const router = useRouter();
 
 
     })
-  }, [navbar.current,router])
+  }, [navbar.current, router])
   return (
     <motion.nav ref={navbar} id="navHeader" aria-label='Naviagtion Bar' className='navbar'>
-      
+
       <Link href="/">
         <HomeIcon id='homeIcon' cursor="pointer" />
       </Link>

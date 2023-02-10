@@ -15,16 +15,8 @@ function Contact({ }: Props) {
     github: string
   }
 
-  const images: imageSchema = {
-    gmail:
-      'https://cdn.sanity.io/images/aoh7mhe4/production/29ecd1b0ed47b84cb9f660f3c7b8223fd0516033-343x256.jpg', //'/Gmail_Logo_256px.jpg',
-    linkedIn:
-      'https://cdn.sanity.io/images/aoh7mhe4/production/476623dcc97d03a415ae56e4734d0c114fd23c2a-635x540.jpg',
-    github:
-      'https://cdn.sanity.io/images/aoh7mhe4/production/a21ab27257b4cd6d3b3a517bcabe6efa47ab4f8c-120x120.jpg',
-  }
 
-  let urls = {
+  let urls:imageSchema = {
     gmail: '#formDiv',
     linkedIn: 'https://linkedin.com/in/aqil-arya',
     github: 'https://github.com/aqil07',

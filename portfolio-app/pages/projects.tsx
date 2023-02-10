@@ -1,6 +1,7 @@
 import React, { useRef } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import ThreeCanvas from '../threeJS/canvas'
 
 type Props = {}
 
@@ -34,9 +35,12 @@ function Projects({}: Props) {
     
   }
   return (
-    <motion.div id='projects'>
-      <motion.section>
+    <motion.div id='projects' className='projects-ctn'>
+      <motion.section className='codepen'>
        <Link href='https://codepen.io/aqilarya'>My CodePen</Link>
+      </motion.section>
+      <motion.section>
+        <ThreeCanvas/>
       </motion.section>
     </motion.div>
   )

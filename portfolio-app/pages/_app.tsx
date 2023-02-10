@@ -6,6 +6,9 @@ import './componentStyles/profExp.css';
 import './componentStyles/contactForm.css';
 import './componentStyles/skills.css';
 import './componentStyles/nav.css';
+import './componentStyles/projects.css';
+import './componentStyles/canvasStyles.css';
+
 import type { AppProps } from 'next/app';
 import Layout from './components/layout';
 import { createClient } from 'next-sanity';
