@@ -47,7 +47,7 @@ function Nav({ }: Props) {
 
 
     })
-  }, [navbar.current, router])
+  }, [router])
   return (
     <motion.nav ref={navbar} id="navHeader" aria-label='Naviagtion Bar' className='navbar'>
 
