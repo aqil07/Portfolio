@@ -2,8 +2,6 @@ import { createClient } from 'next-sanity'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { contactImageSchema } from '../../utils/types'
-import imageUrlBuilder from '@sanity/image-url'
 import { motion, useInView } from 'framer-motion'
 
 type Props = {}

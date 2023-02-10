@@ -1,7 +1,7 @@
 import { createClient } from 'next-sanity'
 import Link from 'next/link'
 import React, { useEffect, useReducer, useRef, useState } from 'react'
-import { contactImageSchema } from '../../utils/types'
+
 import styles from '../componentStyles/Home.module.css'
 import Contact from './contactDetails'
 import Toggle from './toggle'
