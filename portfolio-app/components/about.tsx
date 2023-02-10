@@ -69,20 +69,9 @@ function About({ age, about }: Props) {
                     <div className='abtHeader'>
                         <h4>About me..</h4>
                     </div>
-                    {/* <TypewriterComponent options={{
-                        wrapperClassName: 'typeStr',
-                        strings: aboutStr,
-                        autoStart: true,
-                        delay: 30,
-                        cursor: '_'
-                    }}
-
-                    /> */}
+                   
                     <p>{aboutStr}</p>
-                    {/* <Image
-                            src={gmail.src} width={40} height={1}
-                            className='profile' key='profile' alt="profile_picture" /> */}
-
+                  
                     <a className='cv' href='/aqil_arya_cv.pdf' download><p>Click to download my CV</p></a>
                 </div>
 
@@ -95,21 +84,3 @@ function About({ age, about }: Props) {
 
 export default About;
 
-
-// export const client = createClient({
-//     projectId: 'aoh7mhe4',//process.env.NEXT_PUBLIC_project_id,
-//     dataset: 'production',//process.env.NEXT_PUBLIC_dataset,
-//     apiVersion: '2021-10-21',//process.env.NEXT_PUBLIC_apiVersion,
-//     useCdn: false
-// });
-
-// //get data from Sanity
-// export async function getStaticProps() {
-//     const about: Array<Object> = await client.fetch(`*[_type == "about"]`);
-
-//     return {
-//         props: {
-//             about,
-//         }
-//     }
-// }
