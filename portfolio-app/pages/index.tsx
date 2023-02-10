@@ -1,11 +1,11 @@
 import { Suspense, useEffect, useMemo, useReducer, useRef, useState } from 'react'
 import { delay, motion, useInView } from 'framer-motion'
-import Skills from './skills'
+import Skills from '../components/skills'
 import { aboutSchema, contactImageSchema, skillSchema, workSchema } from '../utils/types'
 import { createClient } from 'next-sanity'
 import About, { getAge } from './about'
-import Experience from './workExp'
-import Projects from './projects'
+import Experience from '../components/workExp'
+import Projects from '../components/projects'
 import { useRouter } from 'next/router'
 
 type Props = {
