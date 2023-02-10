@@ -1,21 +1,12 @@
 import { Suspense, useEffect, useMemo, useReducer, useRef, useState } from 'react'
-import styles from './componentStyles/Home.module.css'
-import SphereGeo from '../threeJS/sphere';
-// import Stars from '../threeJS/stars';
-// import { Canvas, } from '@react-three/fiber';
-// import { Loader, PresentationControls } from '@react-three/drei';
 import { delay, motion, useInView } from 'framer-motion'
 import Skills from './skills'
 import { aboutSchema, contactImageSchema, skillSchema, workSchema } from '../utils/types'
 import { createClient } from 'next-sanity'
-import Contact from './components/contactDetails'
-import { Canvas } from '@react-three/fiber'
-import { Loader, PresentationControls } from '@react-three/drei'
 import About, { getAge } from './about'
 import Experience from './workExp'
 import Projects from './projects'
 import { useRouter } from 'next/router'
-import Welcome from './components/welcome';
 
 type Props = {
   age: number,
