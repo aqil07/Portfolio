@@ -128,9 +128,9 @@ export default function Home({ about, workExp, skills }: Props) {
 }
 
 export const client = createClient({
-  projectId: 'aoh7mhe4',//process.env.NEXT_PUBLIC_PROJECT_ID,
-  dataset: 'production',//process.env.NEXT_PUBLIC_DATASET,
-  apiVersion: '2021-10-21',//process.env.NEXT_PUBLIC_APIVERSION,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_DATASET,
+  apiVersion: process.env.NEXT_PUBLIC_APIVERSION,
   useCdn: false
 });
 
