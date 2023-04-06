@@ -3,9 +3,6 @@
     border-radius: 10px;
     padding: 1rem;
     display: grid;
-    /* display: flex;
-    flex-direction: column; */
-    font-size: xx-large;
     gap: 1rem;
 }
 
@@ -19,7 +16,6 @@
 #message {
     resize: vertical;
     overflow: scroll;
-    font-size: xx-large;
     visibility: visible;
     width: 100%;
     color: #111;
@@ -43,7 +39,7 @@
 }
 
 .submit {
-    font-size: large;
+    /* font-size: large; */
     background-color: transparent;
     border-radius: 5px;
     cursor: pointer;
@@ -52,19 +48,3 @@
     margin-top: 1vh;
 
 }
-
-
-/* @media (max-aspect-ratio:16/9) {
-   .form{
-    
-    font-size: x-large;
-   }
-   #name,
-   #email,
-   #subject,
-   #message {
-    font-size:x-large;
-   }
-
-
-} */

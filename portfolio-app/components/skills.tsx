@@ -38,40 +38,24 @@ function Skills({ skills }: Props) {
             </div>
 
             <motion.div id='galLeft' className='skillGallery'
-                //  initial={{ opacity: 0,y:-100 }}
-                //  animate={{ opacity: 1,  y:0}}
                 animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, y: -100, }}
 
-            // initial={{ opacity: 0, x: -100 }}
-            // animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: -100, }}
-            //    transition={{delay:0.9}}
-            // transition={{
-            //     type: 'spring',
-            //     delay: 0.9
-            // }}
             >
                 {
                     skillData.slice(0, skillData.length / 2).map((skill) => {
 
-                        // console.log(skill.skillImage.asset._ref);
-                        // console.log(skill.progress);
-
+                    
                         function onHover(): any {
 
                             setSkillProg(skill.progress)
-                            // console.log(skill.progress);
-
-                            // getAlt(skill[0])
-
+                    
                         };
 
                         function onLeave() {
                             setSkillProg(skillProg)
                         }
 
-                        // path = item[1].path;
-                        // alt = item[0];
-
+                    
                         return (
                             <div key={skill._id}>
 

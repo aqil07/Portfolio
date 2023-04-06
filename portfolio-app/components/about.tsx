@@ -72,7 +72,9 @@ function About({ age, about }: Props) {
                    
                     <p>{aboutStr}</p>
                   
-                    <a className='cv' href='/aqil_arya_cv.pdf' download><p>Click to download my CV</p></a>
+                    <a style={{
+                        textAlign:'center'
+                    }} className='cv' href='/aqil_arya_cv.pdf' download><p>Click to download my CV</p></a>
                 </div>
 
             </motion.div>

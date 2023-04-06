@@ -9,8 +9,7 @@ function Footer(): JSX.Element {
     <footer className={styles.footer} >
       <div id='formDiv' className={styles.formDiv}>
         <Form />
-      </div>
-
+     
       <GoUp clickHandler={() => {
         console.log(window.location.href);
         
@@ -24,7 +23,8 @@ function Footer(): JSX.Element {
           behavior: 'smooth'
         })
       }} />
-     
+      </div>
+
     </footer>
   )
 }

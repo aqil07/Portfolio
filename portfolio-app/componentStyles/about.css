@@ -47,8 +47,10 @@
 }
 
 .aboutFront {
-    text-align: center;
-    font-size: xx-large;
+    text-align: left;
+    letter-spacing: 1cqw;
+    font-size: 5cqw;
+    /* font-size: xx-large; */
     box-sizing: border-box;
     /* border: 1px solid #111; */
    border-radius: 10px;

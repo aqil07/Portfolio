@@ -13,6 +13,12 @@
     height: 100%;
     /* z-index: -5; */
 }
+.imgEl{
+    object-fit: contain;
+    background-position: 100%;
+}
+
+
 
 .skills::before {
     content: '';
@@ -41,7 +47,7 @@
 .skillGallery,
 .skillGalleryRight {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100px,100%), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(50px,100%), 1fr));
 /* z-index: 10; */
 
 }
@@ -75,7 +81,6 @@
     opacity: 0;
     color: inherit;
     font-weight: bold;
-    font-size: large;
     width: 70px;
     height: 69px;
     z-index: 3;
