@@ -159,7 +159,12 @@ function Nav({ }: Props) {
         <Link className='link' aria-label='Experience' href="#workExp">Experience </Link>
         <Link className='link' aria-label='Skills' href="#skills">Skills </Link>
         <Link className='link' aria-label='Projects' href='#projects'>Projects</Link>
+        <Link href='https://codepen.io/aqilarya'>CodePen</Link>
+       
       </motion.div >
+      
+      {/* <motion.div className='codepen'>
+          </motion.div> */}
       <Contact />
 
     </motion.nav >

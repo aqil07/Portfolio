@@ -110,14 +110,14 @@ function Form(): JSX.Element {
             </div>
             <form ref={form} className='form' id='form' onSubmit={handleSubmit}>
                 <label htmlFor='name'>Enter your name</label>
-                <input required onChange={handleNameChange} type='text' name='name' className='name' id='name' value={state?.name} />
+                <input aria-label='Your name input field' required onChange={handleNameChange} type='text' name='name' className='name' id='name' value={state?.name} />
                 <label htmlFor='email'>Enter your email</label>
-                <input required onChange={handleEmailChange} type='text' name='email' className='email' id='email' value={state?.email} />
+                <input aria-label='Your email input field' required onChange={handleEmailChange} type='text' name='email' className='email' id='email' value={state?.email} />
                 <label htmlFor='subject'>Subject</label>
-                <input required={false} type='text' id='subject' className='subject' name='subject' onChange={handleSubjectChange} value={state?.subject} />
+                <input aria-label='Your email subject input field' required={false} type='text' id='subject' className='subject' name='subject' onChange={handleSubjectChange} value={state?.subject} />
                 <label htmlFor='message'>Enter your message</label>
-                <textarea required id='message' className='message' name='message' onChange={handleMessageChange} value={state?.message} />
-                <button type='submit' className='submit' id='submit'>Submit</button>
+                <textarea aria-label='Your email message input field' required id='message' className='message' name='message' onChange={handleMessageChange} value={state?.message} />
+                <button aria-label='Your form submit button ' type='submit' className='submit' id='submit'>Submit</button>
             </form>
         </>
     )

@@ -27,10 +27,44 @@ function Skills({ skills }: Props) {
         return builder.image(source)
     };
 
+    const [windowSize, setWindowSize] = useState({
+        width: 0,
+        height: 0
+    });
+
+    useEffect(() => {
+
+
+
+        setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight
+        })
+
+        window.addEventListener('resize', function () {
+
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight
+            })
+        });
+    }, [windowSize.width, windowSize.height]);
+
+    //hover handling function
+    function hoverHandler(data: string) {
+        setSkillProg(data);
+
+    }
+    //reset hover value
+    function onLeave() {
+        setSkillProg(skillProg)
+    }
+
+    const ItemHeight = (windowSize.height / skills.length) / 2;
+    const itemWidth = (windowSize.width / skills.length) / 2;
+
     return (
         <motion.section ref={skillsCtn} className='skills' id='skills'
-        // initial={{ opacity: 0,y:-100 }}
-        // animate={{ opacity: 1,  y:0}}//{isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -100 }}
         >
 
             <div className='skillHDR'>
@@ -44,32 +78,26 @@ function Skills({ skills }: Props) {
                 {
                     skillData.slice(0, skillData.length / 2).map((skill) => {
 
-                    
-                        function onHover(): any {
-
-                            setSkillProg(skill.progress)
-                    
-                        };
-
-                        function onLeave() {
-                            setSkillProg(skillProg)
-                        }
-
-                    
                         return (
                             <div key={skill._id}>
 
-                                <div key={skill._id} onClick={onHover} onMouseLeave={onLeave} className='skillsImg' id='skillsImg'>
+                                <div key={skill._id} onClick={() => hoverHandler(skill.progress)} onMouseLeave={onLeave} className='skillsImg' id='skillsImg'>
                                     <Image
-                                        width={80}
-                                        height={75}
+                                        width={itemWidth}
+                                        height={ItemHeight}
                                         id='imgEl'
                                         className='imgEl'
                                         key={skill._id}
                                         alt='skillImage'
                                         src={urlFor(skill.skillImage.asset._ref).url()}></Image>
                                     <div className='progCTN'>
-                                        <span key={skill._id} className='prog' >{skillProg}</span>
+                                        <span
+                                            style={{
+                                                fontSize: '1cqw',
+                                                width: itemWidth,
+                                                height: ItemHeight
+                                            }}
+                                            key={skill._id} className='prog' >{skillProg}</span>
                                         <span className='progBar'></span>
                                     </div>
                                 </div>
@@ -84,52 +112,35 @@ function Skills({ skills }: Props) {
             </motion.div>
             <motion.div id='galRight' className='skillGalleryRight'
                 animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: -100, }}
-
-            //   initial={{opacity:0, x:100}}
-            //   animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: 100, }}
-            //   transition={{delay:0.1}}
-            //   transition={{
-            //       type: 'spring',
-            //       delay: 0.9
-            //   }}
             >
                 {
                     skillData.slice(skillData.length / 2).map((skill) => {
 
-                        // console.log(skill.skillImage.asset._ref);
-                        // console.log(skill.progress);
 
-                        function onHover(): any {
-
-                            setSkillProg(skill.progress)
-                            // console.log('hover');
-
-                            // getAlt(skill[0])
-
-                        };
-
-                        function onLeave() {
-                            setSkillProg(skillProg)
-                        }
-
-                        // path = item[1].path;
-                        // alt = item[0];
 
                         return (
                             <div key={skill._id}>
 
-                                <div key={skill._id} onMouseEnter={onHover} onMouseLeave={onLeave} className='skillsImg' id='skillsImg'>
+                                <div key={skill._id} onMouseEnter={() => hoverHandler(skill.progress)} onMouseLeave={onLeave} className='skillsImg' id='skillsImg'>
                                     <Image
-                                        width={80}
-                                        height={75}
+                                        width={itemWidth}
+                                        height={ItemHeight}
                                         id='imgEl'
                                         className='imgEl'
                                         key={skill._id}
                                         alt='skillImage'
                                         src={urlFor(skill.skillImage.asset._ref).url()}></Image>
-                                    <div className='progCTN'>
-                                        <span key={skill._id} className='prog' >{skillProg}</span>
-                                        <span className='progBar'></span>
+                                    <div className='progCTN'
+                                        style={{
+                                        }}>
+                                        <span
+                                            style={{
+                                                fontSize: '1cqw',
+                                                width: itemWidth,
+                                                height: ItemHeight
+                                            }}
+                                            key={skill._id} className='prog' >{skillProg}</span>
+
                                     </div>
                                 </div>
 

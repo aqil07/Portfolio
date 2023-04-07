@@ -75,7 +75,7 @@ export default function Home({ about, workExp, skills }: Props) {
     }
 
     return () => {
-      console.count('cleanup');
+      // console.count('cleanup');
       // state?.urlPath
 
     }

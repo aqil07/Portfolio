@@ -14,7 +14,7 @@ function Contact({ }: Props) {
   }
 
 
-  let urls:imageSchema = {
+  let urls: imageSchema = {
     gmail: '#formDiv',
     linkedIn: 'https://linkedin.com/in/aqil-arya',
     github: 'https://github.com/aqil07',
@@ -22,6 +22,7 @@ function Contact({ }: Props) {
 
   let imgW = 50
   let imgH = 50
+
 
   return (
     <>
@@ -35,6 +36,7 @@ function Contact({ }: Props) {
           >
             <motion.a key={'gmail'} href={urls.gmail}>
               <Image
+                className='imgNav'
                 loading='lazy'
                 width={imgW}
                 height={imgH}

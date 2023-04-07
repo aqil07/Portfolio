@@ -1,48 +1,113 @@
-import React, { useRef } from 'react'
+import React, { HTMLProps, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import ThreeCanvas from '../threeJS/canvas'
+// import ThreeCanvas from '../threeJS/canvas';
+import Image from 'next/image';
 
+import imageUrlBuilder from '@sanity/image-url';
+import { client } from '../pages';
 type Props = {}
 
-function Projects({}: Props) {
-  let fill = '#0099ff',
-    fillOpacity = '1',
-    d =
-      'M0,128L48,117.3C96,107,192,85,288,96C384,107,480,149,576,170.7C672,192,768,192,864,186.7C960,181,1056,171,1152,181.3C1248,192,1344,224,1392,240L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'
-  const svgWave: any = useRef()
+function Projects({ }: Props) {
 
-  function mouseMove() {
-    let arr = svgWave.current.firstChild.getAttribute('d').split(',')
-    let str;
-    let tmp:any = []
-    arr.map((v: any) => {
-      // console.log(v);
-      if(v.includes('M')){
-        console.log(v.replace('M0','M'+Math.random()))
-        v = v.replace('M0','M'+Math.random())
-      }else if(v.includes('L')){
-        v = v.replace(/L\g/,'L'+Math.random())
-      }
-      
-      tmp.push(v)
+  // Get a pre-configured url-builder from your sanity client
+  const builder = imageUrlBuilder(client);
+  function urlFor(source: any) {
+    return builder.image(source)
+  };
+
+  const [windowSize, setWindowSize] = useState({
+    width: 0,
+    height: 0
+  });
+
+  useEffect(() => {
+
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight
     })
-    str = tmp.toString()
-    svgWave.current.firstChild.setAttribute('d',str) 
-    
-    console.log(svgWave.current.firstChild.getAttribute('d'))
-    // console.log(tmp);
-    
+
+    window.addEventListener('resize', function () {
+
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+    });
+  }, [windowSize.width, windowSize.height]);
+
+  const [isBig, makeBig] = useState(false);
+
+  const img1: any = useRef('');
+
+  const ItemHeight = (windowSize.height / 2);
+  const itemWidth = (windowSize.width / 2);
+
+  function clickHandler(element: any, triggerfn: CallableFunction) {
+
+    triggerfn(() => !isBig);
+
+    element.target.style.transform = isBig === true ? element.target.style.transform = 'scale(1)' : element.target.style.transform = 'scale(1.5)'
+
+
   }
+
   return (
-    <motion.div id='projects' className='projects-ctn'>
-      <motion.section className='codepen'>
-       <Link href='https://codepen.io/aqilarya'>My CodePen</Link>
-      </motion.section>
-      <motion.section>
-        <ThreeCanvas/>
-      </motion.section>
-    </motion.div>
+    <>
+      <motion.div id='projects' className='projects-ctn'>
+        <div className='projectsHdr'>
+          <h4>Projects</h4>
+        </div>
+
+        <motion.section className='news_Site'>
+          <div className='news_SiteHdr'>
+            <h4>News Site Project - Built with Qwik</h4>
+            <small ><a href='https://github.com/aqil07/qwik_news_Site'>GitHub Repo for this Project</a></small>
+          </div>
+          <Image
+            ref={img1}
+            onClick={(e: any) => clickHandler(e, makeBig)}
+            width={itemWidth}
+            height={ItemHeight}
+            className='newsImage'
+            style={{
+              objectFit: 'contain'
+            }}
+            key='newsImage1'
+            alt='news site form filter section'
+            src='/project-images/collapsibleForm.jpg'
+          >
+          </Image>
+          <Image
+            onClick={(e) => clickHandler(e, makeBig)}
+            width={itemWidth}
+            height={ItemHeight}
+            style={{
+              objectFit: 'contain'
+            }}
+            key='newsImage2'
+            alt='news site landing page'
+            src='/project-images/newsSiteLanding.jpg'
+          >
+          </Image>
+          <Image
+            onClick={(e) => clickHandler(e, makeBig)}
+            width={itemWidth}
+            height={ItemHeight}
+            style={{
+              objectFit: 'contain'
+            }}
+            key='newsImage3'
+            alt='news site categories dropdown'
+            src='/project-images/newsSiteCatDropDown.jpg'
+          >
+          </Image>
+        </motion.section>
+      </motion.div>
+
+
+    </>
   )
 }
 

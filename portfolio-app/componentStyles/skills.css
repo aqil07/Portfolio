@@ -5,7 +5,9 @@
 
     text-align: center;
     opacity: 1;
-    display: inline-block;
+    display: grid;
+    grid-template-areas: "header header"
+                        "leftGallery  rightGallery";
     min-width: 0;
     width: 100%;
     position: relative;
@@ -13,10 +15,7 @@
     height: 100%;
     /* z-index: -5; */
 }
-.imgEl{
-    object-fit: contain;
-    background-position: 100%;
-}
+
 
 
 
@@ -28,6 +27,7 @@
     transform: skewY(calc(-1 * var(--skew-a))) rotate(180deg);
     background: var(--background-image-2);
 }
+
 .skills::after {
     content: '';
     position: absolute;
@@ -38,18 +38,27 @@
 }
 
 .skillHDR {
+    grid-area: header;
     position: relative;
     display: flex;
-    /* z-index: 5; */
     justify-content: center;
 }
 
+.skillGallery {
+    grid-area: leftGallery;
+}
+
+.skillGalleryRight {
+    grid-area: rightGallery;
+}
+
+
 .skillGallery,
 .skillGalleryRight {
+    justify-content: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(50px,100%), 1fr));
-/* z-index: 10; */
-
+    position: relative;
+    gap: 10cqw
 }
 
 
@@ -57,10 +66,6 @@
 
 .skillsImg {
     display: inline-flex;
-    justify-content: center;
-    padding: 1rem;
-    border-radius: 10%;
-    /* background-color: lightgray; */
 }
 
 
@@ -81,11 +86,13 @@
     opacity: 0;
     color: inherit;
     font-weight: bold;
-    width: 70px;
-    height: 69px;
+    font-size: larger;
+    /* width: 70px;
+    height: 69px; */
     z-index: 3;
     transition: 0.5s ease;
 }
+
 
 
 .imgElShow {
@@ -99,22 +106,6 @@
     transition: 0.5s ease-out;
     width: 77px;
     border: 1px solid transparent;
-    background-image: linear-gradient(45deg,rgba(48, 54, 55, 0.7),rgba(7, 47, 128, 0.953));
-    /* background-image: radial-gradient(closest-corner,rgba(140, 218, 225, 0.7),rgba(51, 224, 239, 0.953),rgba(39, 111, 165, 0.9)) ; */
-    /* background-color: whitesmoke; */
+    background-image: linear-gradient(45deg, rgba(48, 54, 55, 0.7), rgba(7, 47, 128, 0.953));
     height: 73px;
 }
-
-
-/* @media screen and (max-aspect-ratio:16/9) {
-    .skills {
-        opacity: 0;
-        padding: 1rem;
-        text-align: center;
-        position: relative;
-        border: 1px solid #111;
-        display: inline-block;
-        min-height: 0;
-        height: 100%;
-    }
-} */

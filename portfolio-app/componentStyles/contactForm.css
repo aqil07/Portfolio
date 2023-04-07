@@ -10,6 +10,10 @@
     resize: vertical;
 }
 
+input,textarea{
+    font-size: 3cqw;
+}
+
 #name,
 #email,
 #subject,

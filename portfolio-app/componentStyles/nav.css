@@ -25,6 +25,17 @@
 
 
 
+
+.codepen>a {
+    cursor: pointer;
+}
+
+.codepen>a:hover {
+    text-decoration: underline;
+    color: black;
+    background: linear-gradient(60deg, rgb(46, 104, 171),rgb(40, 218, 228));
+}
+
 @media screen and (max-width:760px) {
     .navbar {
 

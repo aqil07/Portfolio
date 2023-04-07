@@ -25,16 +25,17 @@ function Layout({ children }: Props) {
                 height: window.innerHeight
             })
         });
-    }, []);
+    }, [windowSize.width,windowSize.height]);
 
     return (
         <motion.div className='layout'
             style={{
-                width: windowSize.width == 0 ? '100%' : windowSize.width- 50,
+                // width: windowSize.width == 0 ? '100%' : windowSize.width- 50,
                 inset: 0,
                 display: 'grid',
-                justifyContent: 'flex-start',
+                justifyContent: 'center',
                 alignItems: 'center',
+                gridTemplateColumns: `repeat(auto-fill,minmax(min(${windowSize.width},100%),1fr))`,
                 // placeItems:'center',
                 // placeSelf:'center',
                 // placeContent:'center',

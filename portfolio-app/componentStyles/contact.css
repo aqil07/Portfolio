@@ -1,7 +1,6 @@
-
 .contactCard {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    gap:1rem;
+    gap: 1rem;
 }
