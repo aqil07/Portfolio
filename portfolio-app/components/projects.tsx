@@ -1,5 +1,5 @@
 import React, { HTMLProps, useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import Link from 'next/link'
 // import ThreeCanvas from '../threeJS/canvas';
 import Image from 'next/image';
@@ -53,6 +53,9 @@ function Projects({ }: Props) {
 
   }
 
+  const mobileApp = useRef(null);
+  const isInView: Boolean = useInView(mobileApp)
+
   return (
     <>
       <motion.div id='projects' className='projects-ctn'>
@@ -67,6 +70,8 @@ function Projects({ }: Props) {
           </div>
           <Image
             ref={img1}
+            loading='lazy'
+
             onClick={(e: any) => clickHandler(e, makeBig)}
             width={itemWidth}
             height={ItemHeight}
@@ -80,6 +85,8 @@ function Projects({ }: Props) {
           >
           </Image>
           <Image
+            loading='lazy'
+
             onClick={(e) => clickHandler(e, makeBig)}
             width={itemWidth}
             height={ItemHeight}
@@ -94,6 +101,7 @@ function Projects({ }: Props) {
           <Image
             onClick={(e) => clickHandler(e, makeBig)}
             width={itemWidth}
+            loading='lazy'
             height={ItemHeight}
             style={{
               objectFit: 'contain'
@@ -103,6 +111,22 @@ function Projects({ }: Props) {
             src='/project-images/newsSiteCatDropDown.jpg'
           >
           </Image>
+        </motion.section>
+        <motion.section
+          className='rn-mobile'
+
+          animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: -100, }}
+          ref={mobileApp}
+        >
+
+          <motion.h4>A React-Native Mobile App</motion.h4>
+          <motion.span>
+            <i> Hosted on <a href='https://appetize.io/'>appetize.io</a></i>
+          </motion.span>
+          <motion.embed className='rn-app'
+            src='https://appetize.io/embed/ueynijvi5h7iublgmyrngpdsvm?language=en_ZA&grantPermissions=true'>
+
+          </motion.embed>
         </motion.section>
       </motion.div>
 

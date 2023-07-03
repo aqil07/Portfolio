@@ -5,7 +5,10 @@
     --edgeSize: 0.3em;
     display: grid;
     grid-template-areas: "header"
-                        "news_Site";
+                        "news_Site"
+                        "rn-mobile"
+                        "rn-app";
+
     gap:5cqw;
     height: fit-content;
     margin-bottom: 50cqh;
@@ -22,7 +25,9 @@
     z-index: -1;
     border-radius: 10px;
     /* transform: skewY(var(--skew)); */
-    background:var(--background);
+    background:
+    linear-gradient(45deg, black , transparent ),
+    var(--background);
 }
 .projectsHdr{
     grid-area: header;
@@ -36,6 +41,31 @@
     display: grid;
     place-items: center;
     grid-area: news_Site;
+    row-gap: 5em;
+}
+
+.news_Site>img{
+    border-radius: 10px 5px 10px 5px;
+    height: fit-content;
+}
+
+
+
+.rn-mobile:not(h4){
+    width: 100%;
+    height:65em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    grid-area: rn-mobile;
+}
+
+.rn-app{
+    align-self: center;
+    top: 3em;
+    position: relative;
+    height:calc(100% + 1px)
 }
 
 .news_Site small a:hover{

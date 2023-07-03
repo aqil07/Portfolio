@@ -1,5 +1,4 @@
-import React, { useEffect, useReducer, useRef, useState } from 'react';
-import axios from 'axios';
+import React, { useReducer, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 type formType = {
     name: string,

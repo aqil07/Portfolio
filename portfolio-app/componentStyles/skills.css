@@ -25,7 +25,9 @@
     inset: 0;
     z-index: -2;
     transform: skewY(calc(-1 * var(--skew-a))) rotate(180deg);
-    background: var(--background-image-2);
+    background: 
+
+    var(--background-image-2);
 }
 
 .skills::after {
@@ -34,7 +36,9 @@
     inset: 0;
     z-index: -1;
     transform: skewY(var(--skew-a));
-    background: var(--background-image);
+    background: 
+    linear-gradient(-5deg, black , transparent 80px) 0 0 / 100% 50px repeat,
+    var(--background-image);
 }
 
 .skillHDR {

@@ -8,7 +8,9 @@
     align-items: center;
     transition: 1s cubic-bezier(0.25, 0.1, 0.04, 0.9);
     border-radius: 10px;
-    background: linear-gradient(55deg,rgba(137, 79, 79, 0.7),rgba(36, 97, 157, 0.7),rgba(209, 27, 185, 0.7),rgba(56, 239, 249, 0.7))
+    background: 
+    linear-gradient(45deg, black , transparent ),
+    linear-gradient(55deg,rgba(137, 79, 79, 0.7),rgba(36, 97, 157, 0.7),rgba(209, 27, 185, 0.7),rgba(56, 239, 249, 0.7));
 }
 
 .navbar .contactCard {

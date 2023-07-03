@@ -47,7 +47,9 @@
     min-height: 0;
     transition: 0.5s ease-out;
 /* background-color: red; */
-    background: var(--background-image);
+    background: 
+    linear-gradient(45deg, black , transparent ),
+    var(--background-image);
     margin: 0.5rem;
 /* moves clockwise */
     clip-path: polygon( calc(var(--edgeSize)) 0, 100% 0, 100% 80%, calc(100% - var(--edgeSize)) 100%, 0 100%, 0% 20%);
