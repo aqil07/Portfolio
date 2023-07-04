@@ -1,44 +1,42 @@
 import React, { useEffect, useRef } from "react";
 import styles from '../componentStyles/Home.module.css';
+import { motion, useInView } from "framer-motion";
+import ThreeCanvas from "../threeJS/canvas";
 
 function Welcome(props: any) {
 
 
     const win: any = useRef();
+    const isInView: Boolean = useInView(win)
+
     // useEffect(() => {
     const header = 'Welcome to my Portfolio';
-    let i = 0;
 
-    // console.log('win', win.current.innerHTML);
 
-    function TextTyper(): any {
-
-        if (i < header.length) {
-            if (win.current !== undefined) {
-                if (win.current.innerHTML.includes('Welcome to my Portfolio')) {
-                    win.current.innerHTML = '';
-                } else {
-                    win.current.innerHTML += header.charAt(i);
-                }
-                // win.current.innerHTML += header.charAt(i);
-            }
-            i++;
-            setTimeout(TextTyper, 99)
-        }
-
+    const variants = {
+        open: {
+            opacity: 1,
+            x: 0
+        },
+        closed: {
+            opacity: 0,
+            x: -100
+        },
     }
 
-    useEffect(() => {
-        // setTimeout(() => {
-
-            return TextTyper()
-        // }, 1000)
-    })
-
-
     return (
-        <h1 ref={win} id='welcome' className={styles.welcome}>
-        </h1>
+        <motion.header className={styles.landingHeader} >
+            <motion.h1 ref={win} id='welcome' className={styles.welcome}
+                whileHover={{
+                    scale: 1.2,
+                    transition: { duration: 1, type:'spring' },
+                }}
+                animate={isInView ? variants.open : variants.closed}
+                variants={variants}
+            >
+                {header}
+            </motion.h1>
+        </motion.header>
     )
 
 }

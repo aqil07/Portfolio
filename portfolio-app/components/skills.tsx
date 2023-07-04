@@ -60,8 +60,8 @@ function Skills({ skills }: Props) {
         setSkillProg(skillProg)
     }
 
-    const ItemHeight = (windowSize.height / skills.length) / 2;
-    const itemWidth = (windowSize.width / skills.length) / 2;
+    const ItemHeight = (windowSize.height / skills.length);
+    const itemWidth = (windowSize.width / skills.length);
 
     return (
         <motion.section ref={skillsCtn} className='skills' id='skills'
@@ -72,7 +72,7 @@ function Skills({ skills }: Props) {
             </div>
 
             <motion.div id='galLeft' className='skillGallery'
-                animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, y: -100, }}
+                animate={isInView ? { opacity: 1, y: 0,  transition:{delay: 1.5, staggerChildren: 1.09} } : { opacity: 0, y: -100, }}
 
             >
                 {
@@ -81,8 +81,17 @@ function Skills({ skills }: Props) {
                         return (
                             <div key={skill._id}>
 
-                                <div key={skill._id} onClick={() => hoverHandler(skill.progress)} onMouseLeave={onLeave} className='skillsImg' id='skillsImg'>
+                                <motion.div
+                                    whileHover={{
+                                        scale: 1.2,
+                                        transition: { duration: 1, type: 'spring' },
+                                    }}
+                                    key={skill._id} onClick={() => hoverHandler(skill.progress)} onMouseLeave={onLeave} className='skillsImg' id='skillsImg'>
                                     <Image
+                                        loading='lazy'
+                                        style={{
+                                            objectFit: 'contain'
+                                        }}
                                         width={itemWidth}
                                         height={ItemHeight}
                                         id='imgEl'
@@ -90,17 +99,18 @@ function Skills({ skills }: Props) {
                                         key={skill._id}
                                         alt='skillImage'
                                         src={urlFor(skill.skillImage.asset._ref).url()}></Image>
-                                    <div className='progCTN'>
-                                        <span
+                                    <motion.div className='progCTN'>
+                                        <motion.span
+
                                             style={{
                                                 fontSize: '1cqw',
                                                 width: itemWidth,
                                                 height: ItemHeight
                                             }}
-                                            key={skill._id} className='prog' >{skillProg}</span>
-                                        <span className='progBar'></span>
-                                    </div>
-                                </div>
+                                            key={skill._id} className='prog' >{skillProg}</motion.span>
+                                        <motion.span className='progBar'></motion.span>
+                                    </motion.div>
+                                </motion.div>
 
                             </div>
                         )
@@ -111,7 +121,7 @@ function Skills({ skills }: Props) {
 
             </motion.div>
             <motion.div id='galRight' className='skillGalleryRight'
-                animate={isInView ? { opacity: 1, x: 0, } : { opacity: 0, x: -100, }}
+                animate={isInView ? { opacity: 1, x: 0, transition:{delay: 1, staggerChildren: 0.09} } : { opacity: 0, x: -100, }}
             >
                 {
                     skillData.slice(skillData.length / 2).map((skill) => {
@@ -121,15 +131,27 @@ function Skills({ skills }: Props) {
                         return (
                             <div key={skill._id}>
 
-                                <div key={skill._id} onMouseEnter={() => hoverHandler(skill.progress)} onMouseLeave={onLeave} className='skillsImg' id='skillsImg'>
+                                <motion.div key={skill._id} onMouseEnter={() => hoverHandler(skill.progress)} onMouseLeave={onLeave} className='skillsImg' id='skillsImg'
+                                    whileHover={{
+                                        scale: 1.2,
+                                        transition: { duration: 1, type: 'spring' },
+                                    }}
+                                >
+
                                     <Image
+                                        loading='lazy'
+
                                         width={itemWidth}
                                         height={ItemHeight}
                                         id='imgEl'
                                         className='imgEl'
                                         key={skill._id}
                                         alt='skillImage'
-                                        src={urlFor(skill.skillImage.asset._ref).url()}></Image>
+                                        style={{
+                                            objectFit: 'contain'
+                                        }}
+                                        src={urlFor(skill.skillImage.asset._ref).url()} />
+
                                     <div className='progCTN'
                                         style={{
                                         }}>
@@ -142,7 +164,7 @@ function Skills({ skills }: Props) {
                                             key={skill._id} className='prog' >{skillProg}</span>
 
                                     </div>
-                                </div>
+                                </motion.div>
 
                             </div>
                         )

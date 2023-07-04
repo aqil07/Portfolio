@@ -7,6 +7,8 @@ import About, { getAge } from '../components/about'
 import Experience from '../components/workExp'
 import Projects from '../components/projects'
 import { useRouter } from 'next/router'
+import Welcome from '../components/welcome'
+import ThreeCanvas from '../threeJS/canvas'
 
 type Props = {
   age: number,
@@ -92,7 +94,13 @@ export default function Home({ about, workExp, skills }: Props) {
       gap: '30rem',
       marginTop: 100
     }}>
-      {/* <Welcome /> */}
+      
+      <motion.div style={{
+                height:'30em',
+            }}>
+                <ThreeCanvas />
+            </motion.div>
+      <Welcome />
       <motion.article ref={aboutComp} className='aboutComp'
         style={{ marginTop: 200, marginBottom: 100 }}
         animate={aboutsInView ? { opacity: 1, x: 0, } : { opacity: 0, y: -100, }}

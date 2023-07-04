@@ -3,6 +3,36 @@
   /* src: url('/fonts/TTF/Wilson wells.ttf') format('woff2'); */
   src: url('/fonts/poynter/PoynterText Regular.ttf') format('woff2');
 }
+input, textarea{
+  color: #111;
+ }
+@media (prefers-color-scheme: dark) {
+
+  iframe{
+    background-color: #111;
+  }
+
+  input, textarea{
+   color: #fff;
+  }
+
+  .card,
+  .footer {
+    border-color: #222;
+  }
+
+  .code {
+    background: #111;
+  }
+
+  .logo img {
+    filter: invert(1);
+  }
+}
+
+/* input, textarea{
+  color: #111;
+ } */
 
 * {
   box-sizing: border-box;

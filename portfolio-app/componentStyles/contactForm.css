@@ -25,7 +25,6 @@ input,textarea{
     overflow: scroll;
     visibility: visible;
     width: 100%;
-    color: #111;
     height: 10vh;
     border: 1px solid black;
     border-radius: 10px;

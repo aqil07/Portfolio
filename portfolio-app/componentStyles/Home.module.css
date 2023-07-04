@@ -44,7 +44,7 @@
   /* height: 50vh; */
   border-top: 1px solid #eaeaea;
   /* background-image: linear-gradient(45deg,rgba(41, 61, 65, 0.7) 30%,rgba(91, 118, 171, 0.742) 30%); */
-  background:linear-gradient(-15deg, rgba(18, 97, 139, 0.904), rgba(91, 93, 141, 0.5));  
+  background: linear-gradient(-15deg, rgba(18, 97, 139, 0.904), rgba(91, 93, 141, 0.5));
   /* linear-gradient(-15deg, rgba(24, 66, 103, 0.904), rgba(8, 57, 65, 0.5), rgb(44, 52, 66)); */
   justify-content: center;
 }
@@ -62,10 +62,39 @@
   margin-left: 0.5rem;
 }
 
-.welcome {
-  border-right: solid 3px rgba(0, 255, 0, .75);
-  animation: cursor-animate 650ms steps(29, end) infinite alternate-reverse;
+.landingHeader {
+  display: flex;
+  /* grid-template-columns: repeat(auto-fit, minmax(min(20em, 100%), 1fr)); */
+  align-items: center;
+  height: 10px;
+  margin: 15em
 }
+
+.welcome {
+  font-size: 5em;
+  overflow: hidden;
+  white-space: nowrap;
+  height: fit-content;
+  margin: 0 auto;
+  max-width: fit-content;
+  /* width: 0; */
+  /* border-right: solid 3px rgba(0, 255, 0, .75); */
+  /* animation:
+    typing 3.5s steps(40, end) infinite alternate-reverse,
+    cursor-animate 1s steps(40, end) infinite; */
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
 
 @keyframes cursor-animate {
   from {
@@ -78,45 +107,7 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
 
-  .card,
-  .footer {
-    border-color: #222;
-  }
-
-  .code {
-    background: #111;
-  }
-
-  .logo img {
-    filter: invert(1);
-  }
-}
-
-
-/* globals */
-.welcomeEl {
-  /* font-family: 'Courier New', Courier, monospace; */
-  color: white;
-  border: 3px solid #1974b0;
-  border-radius: 10px;
-  box-shadow: 10px 10px lightslategrey;
-  height: fit-content;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  grid-row-start: 2;
-  background-color: #0070f3;
-  transition: 1s;
-}
-
-.welcomeEl:hover {
-  box-shadow: 14px 14px lightslategray;
-  transition: 1s;
-}
 
 .pageHeader {
   /* border: 1px solid #111; */
@@ -127,7 +118,7 @@
   /* position: sticky; */
   top: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-template-rows: auto;
   justify-content: center;
   align-items: center;
@@ -137,7 +128,7 @@
 
 }
 
-.homeIcon{
+.homeIcon {
   margin: 0.4rem;
 }
 

@@ -1,13 +1,10 @@
-import { createClient } from 'next-sanity'
 import Link from 'next/link'
-import React, { useEffect, useReducer, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 
-import styles from '../componentStyles/Home.module.css'
 import Contact from './contactDetails'
-import Toggle from './toggle'
+// import Toggle from './toggle'
 import HomeIcon from '@mui/icons-material/Home'
-import { motion, useInView } from 'framer-motion'
-import GoUp from './backToTop'
+import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
 type Props = {}
