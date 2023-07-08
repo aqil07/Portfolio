@@ -6,10 +6,10 @@ type Props = {}
 function Document({ }: Props) {
     return (
         <Html >
-            <Head >
+            <Head 
+            title='Aqil Arya - Portfolio'>
                 <link rel="icon" href="/favicon.ico" />
-                <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
-            </Head>
+                 </Head>
             <Main />
             <NextScript />
 

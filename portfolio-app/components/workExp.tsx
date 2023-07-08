@@ -1,7 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
-import TypewriterComponent from 'typewriter-effect'
+import React, { useMemo, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { createClient } from 'next-sanity'
 import { workSchema } from '../utils/types'
 
 type Props = {
@@ -80,23 +78,3 @@ function Experience({ workExp }: Props) {
 }
 
 export default Experience
-
-// export const client = createClient({
-//   projectId: 'aoh7mhe4',//process.env.NEXT_PUBLIC_project_id,
-//   dataset: 'production',//process.env.NEXT_PUBLIC_dataset,
-//   apiVersion: '2021-10-21',//process.env.NEXT_PUBLIC_apiVersion,
-//   useCdn: false
-// });
-
-//get data from Sanity
-// export async function getStaticProps() {
-//   const workExp: Array<Object> = await client.fetch(
-//     `*[_type == "workExperience"] | order(year desc)`
-//   )
-
-//   return {
-//     props: {
-//       workExp,
-//     },
-//   }
-// }

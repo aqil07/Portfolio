@@ -6,8 +6,6 @@ import ThreeCanvas from "../threeJS/canvas";
 function Welcome(props: any) {
 
 
-    const win: any = useRef();
-    const isInView: Boolean = useInView(win)
 
     // useEffect(() => {
     const header = 'Welcome to my Portfolio';
@@ -26,12 +24,17 @@ function Welcome(props: any) {
 
     return (
         <motion.header className={styles.landingHeader} >
-            <motion.h1 ref={win} id='welcome' className={styles.welcome}
+            <motion.h1 id='welcome' className={styles.welcome}
+                whileTap={{
+                    scale: 1.2,
+                    transition: { duration: 1, type: 'spring' },
+                }}
                 whileHover={{
                     scale: 1.2,
-                    transition: { duration: 1, type:'spring' },
+                    transition: { duration: 1, type: 'spring' },
                 }}
-                animate={isInView ? variants.open : variants.closed}
+                initial={variants.closed}
+                whileInView={variants.open}
                 variants={variants}
             >
                 {header}

@@ -1,38 +1,7 @@
 @font-face {
   font-family: 'NewsFont';
-  /* src: url('/fonts/TTF/Wilson wells.ttf') format('woff2'); */
   src: url('/fonts/poynter/PoynterText Regular.ttf') format('woff2');
 }
-input, textarea{
-  color: #111;
- }
-@media (prefers-color-scheme: dark) {
-
-  iframe{
-    background-color: #111;
-  }
-
-  input, textarea{
-   color: #fff;
-  }
-
-  .card,
-  .footer {
-    border-color: #222;
-  }
-
-  .code {
-    background: #111;
-  }
-
-  .logo img {
-    filter: invert(1);
-  }
-}
-
-/* input, textarea{
-  color: #111;
- } */
 
 * {
   box-sizing: border-box;
@@ -41,7 +10,14 @@ input, textarea{
   /* error finder */
   /* border: 1px yellow solid !important; */
   font-family: 'NewsFont', monospace;
-  }
+}
+
+input,
+textarea {
+  color: #111;
+}
+
+
 
 html {
   color-scheme: dark light;
@@ -54,7 +30,7 @@ body {
 }
 
 
-h4{
+h4 {
   font-size: 5cqmin;
 }
 
@@ -69,11 +45,57 @@ p {
 
 a {
   color: inherit;
-    font-size: 3cqmin;
+  font-size: 3cqmin;
   text-decoration: none;
 }
 
-button{
+button {
   font-family: inherit;
   font-size: 3cqmin;
 }
+
+.indexMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.threeDiv {
+  position: relative;
+  aspect-ratio: 1/1;
+  max-height: 100dvh;
+  max-width: 100dvw;
+  z-index: -999;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+
+
+  input,
+  textarea {
+    color: #fff;
+  }
+
+  .card,
+  .footer {
+    border-color: #222;
+  }
+
+  /* .code {
+    background: #111;
+  } */
+
+  .logo img {
+    filter: invert(1);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .threeDiv {
+    max-height: 50dvh;
+  }
+
+}
+
+

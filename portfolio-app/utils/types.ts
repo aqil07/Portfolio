@@ -44,3 +44,17 @@ export interface contactImageSchema extends Sanity {
   },
   name: string,
 }
+
+
+//contact logo data structure
+export interface projectSchema extends Sanity {
+  projectImage: {
+    _type: string,
+    asset: {
+      _ref: any,
+      _type: string
+    }
+  },
+  projectName: string,
+  embedURL: URL
+}

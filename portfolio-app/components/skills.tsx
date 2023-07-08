@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { delay, motion, useInView } from "framer-motion";
-import { createClient } from 'next-sanity';
+import { motion, useInView } from "framer-motion";
 import imageUrlBuilder from '@sanity/image-url';
 import { skillSchema } from '../utils/types'
 import { client } from '../pages';

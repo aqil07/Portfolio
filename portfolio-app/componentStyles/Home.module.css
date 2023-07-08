@@ -1,5 +1,5 @@
 .backToTop {
-  background-color: transparent;
+  background: transparent;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 5px 5px lightslategrey;
@@ -11,6 +11,10 @@
 
 }
 
+
+.backToTop:hover {
+background-color: hwb(165 32% 66%);
+}
 
 
 
@@ -24,13 +28,6 @@
   display: grid;
 }
 
-.main {
-  /* background-color: blue; */
-  width: 100%;
-  margin: 0 0 100vh 0;
-  padding: 4rem 0 0 0;
-  height: auto;
-}
 
 .formDiv {
   padding: 1rem;
@@ -40,13 +37,10 @@
 .footer {
   display: flex;
   flex-direction: column;
-  /* margin-top: 7rem; */
-  /* height: 50vh; */
   border-top: 1px solid #eaeaea;
-  /* background-image: linear-gradient(45deg,rgba(41, 61, 65, 0.7) 30%,rgba(91, 118, 171, 0.742) 30%); */
   background: linear-gradient(-15deg, rgba(18, 97, 139, 0.904), rgba(91, 93, 141, 0.5));
-  /* linear-gradient(-15deg, rgba(24, 66, 103, 0.904), rgba(8, 57, 65, 0.5), rgb(44, 52, 66)); */
   justify-content: center;
+  z-index: 2;
 }
 
 .footer a {
@@ -64,24 +58,34 @@
 
 .landingHeader {
   display: flex;
-  /* grid-template-columns: repeat(auto-fit, minmax(min(20em, 100%), 1fr)); */
   align-items: center;
-  height: 10px;
-  margin: 15em
+  justify-content: center;
+  text-align: center;
+  max-height: 100cqh;
+  height: fit-content;
+  max-width: 100dvw;
 }
 
 .welcome {
+  text-align: center;
   font-size: 5em;
   overflow: hidden;
   white-space: nowrap;
-  height: fit-content;
+  height: min-content;
+  max-height: 100cqh;
   margin: 0 auto;
   max-width: fit-content;
-  /* width: 0; */
-  /* border-right: solid 3px rgba(0, 255, 0, .75); */
-  /* animation:
+  border-right: solid 3px rgba(0, 255, 0, .75);
+  animation:
     typing 3.5s steps(40, end) infinite alternate-reverse,
-    cursor-animate 1s steps(40, end) infinite; */
+    cursor-animate 1s steps(40, end) infinite;
+}
+
+@media screen and (max-width: 800px) {
+  .welcome {
+    font-size: 2em;
+  }
+
 }
 
 /* The typing effect */
@@ -107,87 +111,3 @@
 }
 
 
-
-
-.pageHeader {
-  /* border: 1px solid #111; */
-  border-radius: 10px;
-  z-index: 1;
-  width: 100%;
-  box-sizing: border-box;
-  /* position: sticky; */
-  top: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  grid-template-rows: auto;
-  justify-content: center;
-  align-items: center;
-  /* opacity: 1; */
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-
-}
-
-.homeIcon {
-  margin: 0.4rem;
-}
-
-
-.pageHeader a {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  box-sizing: border-box;
-  padding: 3rem 2rem;
-}
-
-
-.navSection {
-  cursor: pointer;
-  opacity: 1;
-}
-
-#toggle,
-#pageNav {
-  flex-basis: calc(100% / 3);
-}
-
-#pageNav {
-  color: white;
-  font-weight: bold;
-  gap: 50px;
-  align-items: center;
-  justify-content: center;
-}
-
-#contact {
-  align-content: flex-end;
-  justify-content: flex-end;
-  flex-grow: 1;
-}
-
-#work {
-  display: none;
-  opacity: 0;
-  transition: 1.5s;
-  transform: translateY(-51%);
-}
-
-#about {
-  display: none;
-  transition: 1.5s;
-}
-
-
-.changeBtn {
-  height: 5vh;
-  gap: 10px;
-  display: flex;
-  flex-direction: row;
-
-  grid-row-start: 1;
-
-  grid-column-start: 1;
-  justify-self: end;
-  padding: 0rem 1vw 1vh;
-}

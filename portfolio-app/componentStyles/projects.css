@@ -1,15 +1,15 @@
 .projects-ctn {
-    --background: linear-gradient(-15deg, rgba(18, 97, 139, 0.904), rgba(91, 93, 141, 0.5)); 
+    --background: linear-gradient(-15deg, rgba(18, 97, 139, 0.904), rgba(91, 93, 141, 0.5));
     /* radial-gradient(circle at 100%, rgba(55, 95, 113, 0.689), rgb(80, 110, 106)); */
     --skew: -3deg;
     --edgeSize: 0.3em;
     display: grid;
     grid-template-areas: "header"
-                        "news_Site"
-                        "rn-mobile"
-                        "rn-app";
+        "news_Site"
+        "rn-mobile"
+        "rn-app";
 
-    gap:5cqw;
+    gap: 5cqw;
     height: fit-content;
     margin-bottom: 50cqh;
     /* grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr)); */
@@ -18,7 +18,7 @@
     position: relative;
 }
 
-.projects-ctn::after{
+.projects-ctn::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -26,10 +26,11 @@
     border-radius: 10px;
     /* transform: skewY(var(--skew)); */
     background:
-    linear-gradient(45deg, black , transparent ),
-    var(--background);
+        linear-gradient(45deg, black, transparent),
+        var(--background);
 }
-.projectsHdr{
+
+.projectsHdr {
     grid-area: header;
     position: relative;
     display: flex;
@@ -37,24 +38,25 @@
 }
 
 
-.news_Site{
+
+.news_Site {
     display: grid;
     place-items: center;
     grid-area: news_Site;
     row-gap: 5em;
 }
 
-.news_Site>img{
+.news_Site>img {
     border-radius: 10px 5px 10px 5px;
     height: fit-content;
 }
 
 
-.rn-mobile:not(h4){
+.rn-mobile:not(h4) {
     background: transparent;
 
     width: 100%;
-    height:65em;
+    height: 65em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,31 +64,35 @@
     grid-area: rn-mobile;
 }
 
-.rn-mobile a{
+.rn-mobile a {
     text-decoration: underline;
 
 }
 
-.rn-app{
-    max-width: 100%;
-    align-self: center;
-    top: 3em;
-    height: 100%;
-
-    position: relative;
-    height:calc(100% + 1px)
+.iframeholder {
+    max-width: 100dvw;
+    max-height: 100dvh;
+    display: flex;
+    justify-content: space-around;
 }
 
-.news_Site small a:hover{
+.rn-app {
+    height: 70dvh;
+    max-height: 100cqh;
+    top: 3em;
+    position: relative;
+}
+
+.news_Site small a:hover {
     background-color: #fff2;
     color: #acef;
 }
 
-.news_Site small a{
+.news_Site small a {
     text-decoration: underline;
 }
 
-.newsImage{
+.newsImage {
     display: flex;
     justify-content: center;
     align-items: center;

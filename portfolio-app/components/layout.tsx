@@ -1,9 +1,7 @@
-import { createClient } from 'next-sanity';
 import React, { useEffect, useState } from 'react'
-import Form from './contactForm';
 import Footer from './footer';
 import Nav from './nav';
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 type Props = {
     children: any,
@@ -16,37 +14,41 @@ function Layout({ children }: Props) {
         height: 0
     });
 
+    function resizeHandler() {
+
+        setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight
+        })
+    }
+
+    useEffect(() => {
+        resizeHandler()
+
+        return ()=> resizeHandler()
+    }, [])
+
     useEffect(() => {
 
-        window.addEventListener('resize', function () {
+        window.addEventListener('resize', resizeHandler);
 
-            setWindowSize({
-                width: window.innerWidth,
-                height: window.innerHeight
-            })
-        });
-    }, [windowSize.width,windowSize.height]);
+        return () => window.removeEventListener('resize', resizeHandler)
+    }, [[], windowSize.width, windowSize.height]);
 
     return (
         <motion.div className='layout'
             style={{
-                // width: windowSize.width == 0 ? '100%' : windowSize.width- 50,
-                inset: 0,
-                display: 'grid',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gridTemplateColumns: `repeat(auto-fill,minmax(min(${windowSize.width},100%),1fr))`,
-                // placeItems:'center',
-                // placeSelf:'center',
-                // placeContent:'center',
-                gridTemplateRows: 'auto auto 1fr auto',
-                // padding: 0,
-                // margin: '1rem'
+                width: `${windowSize.width}px`,
+
             }}
+            layout
         >
-            <motion.span style={{ marginBottom: '1rem' }}><motion.a target="_blank" href="https://icons8.com/icon/fmFqQmR0UdsR/github">Icons&nbsp;by</motion.a>&nbsp;<motion.a target="_blank" href="https://icons8.com">Icons8</motion.a></motion.span>
+            <motion.span style={{ marginBottom: '1rem', fontSize: '1rem' }}><motion.a target="_blank" href="https://icons8.com/icon/fmFqQmR0UdsR/github">Icons&nbsp;by</motion.a>&nbsp;<motion.a target="_blank" href="https://icons8.com">Icons8</motion.a></motion.span>
             <Nav />
-            <motion.main>{children}</motion.main>
+            {/* <motion.main
+            > */}
+                {children}
+            {/* </motion.main> */}
             <Footer />
         </motion.div>
     )

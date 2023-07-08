@@ -1,17 +1,28 @@
 .navbar {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
-    padding: 0.5rem;
-    width: 100%;
-    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    /* max-width: 100dvw; */
+    justify-content: space-evenly;
+    padding: 1rem;
+    width: 100svw;
+    aspect-ratio: 1/1;
+    height: 10rem;
+    max-height: 10rem;
     position: static;
     align-items: center;
-    transition: 1s cubic-bezier(0.25, 0.1, 0.04, 0.9);
     border-radius: 10px;
-    background: 
-    linear-gradient(45deg, black , transparent ),
-    linear-gradient(55deg,rgba(137, 79, 79, 0.7),rgba(36, 97, 157, 0.7),rgba(209, 27, 185, 0.7),rgba(56, 239, 249, 0.7));
+    z-index: 3;
+    background: none;
+
 }
+
+.navbar .links,
+.navbar img,
+.navbar .homeLink {
+    border-bottom: 1px dashed #fff;
+    stroke-dashoffset:10rem;
+}
+
 
 .navbar .contactCard {
     justify-content: flex-end;
@@ -22,11 +33,16 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
+    z-index: 2;
     justify-content: center;
 }
 
 
-
+.homeLink {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
 
 .codepen>a {
     cursor: pointer;
@@ -35,13 +51,5 @@
 .codepen>a:hover {
     text-decoration: underline;
     color: black;
-    background: linear-gradient(60deg, rgb(46, 104, 171),rgb(40, 218, 228));
-}
-
-@media screen and (max-width:760px) {
-    .navbar {
-
-        display: flex;
-        flex-direction: column;
-    }
+    background: linear-gradient(60deg, rgb(46, 104, 171), rgb(40, 218, 228));
 }

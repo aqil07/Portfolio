@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
-import TypewriterComponent from 'typewriter-effect';
-import { createClient, SanityClient } from 'next-sanity';
+import React, { useRef, useMemo } from 'react';
 import { aboutSchema } from '../utils/types';
 import { motion, useInView } from 'framer-motion';
 

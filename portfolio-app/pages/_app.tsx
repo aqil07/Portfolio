@@ -7,19 +7,25 @@ import '../componentStyles/contactForm.css';
 import '../componentStyles/skills.css';
 import '../componentStyles/nav.css';
 import '../componentStyles/projects.css';
-import '../componentStyles/canvasStyles.css';
 
 import type { AppProps } from 'next/app';
 import Layout from '../components/layout';
-import { createClient } from 'next-sanity';
-import { contactImageSchema } from '../utils/types';
+import Head from 'next/head';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Layout >
-      <Component {...pageProps} />
-    </Layout>)
+    <>
+      <Head
+      >
+        <title>Aqil Arya - Portfolio</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Layout >
+
+        <Component {...pageProps} />
+      </Layout>
+    </>)
 }
 
 export default MyApp;
